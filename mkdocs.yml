@@ -1,13 +1,12 @@
 site_name: My Documentation
 site_url: https://BatyrbekCherushev.github.io/STUDY_NOTES/
+repo_url: https://github.com/BatyrbekCherushev/STUDY_NOTES
+
 
 
 nav:
 - Головна: index.md
-- Написання документації:
-  - Markdown Basic: Markdown_Cheatsheet.md
-  - MkDocs: mkdocs.md
-  - Sphinx: sphinx.md
+
 - PYTHON: 
   - Корисні посилання: PYTHON/python_links.md
   - Типи даних: PYTHON/python_types.md
@@ -23,9 +22,6 @@ nav:
   - Основні поняття GIT: GIT/git_definitions.md
   - Термінологія GIT: GIT/terminology.md
   - Основні команди GIT: GIT/git_basic_commands.md
-- LINUX:
-  - Корисні посилання: LINUX/linux_links.md
-  - ЗАГАЛЬНЕ: LINUX/linux.md
 - Корисні посилання:
   - ЗАГАЛЬНЕ: LINKS/links_basic.md
   - ENGLISH: LINKS/links_english.md
