@@ -1,0 +1,2966 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../python_namespace_scope/">
+      
+      
+        <link rel="next" href="../python_iterator_generators/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Класи - My Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="My Documentation" class="md-header__button md-logo" aria-label="My Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Класи
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Темний"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Темний" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Світлий"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Світлий" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Головна
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Markdown_Cheatsheet/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Написання документації
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../python_links/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  PYTHON
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../GIT/git_links/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  GIT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../LINUX/linux_links/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  LINUX
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../LINKS/links_basic/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Корисні посилання
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Documentation" class="md-nav__button md-logo" aria-label="My Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Головна
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Написання документації
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Написання документації
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Markdown_Cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Markdown Basic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sphinx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sphinx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    PYTHON
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            PYTHON
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Типи даних
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Оператори
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_namespace_scope/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Простір імен, область видимості
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Класи
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Класи
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Корисні ресурси
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Терміни
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 Створення класу
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 Створення екземпляру класу
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Створення кастомного методу класу
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Зміна атрибутів
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Наслідування
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Наслідування">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mro" class="md-nav__link">
+    <span class="md-ellipsis">
+      MRO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MRO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c3-linearization" class="md-nav__link">
+    <span class="md-ellipsis">
+      C3 Linearization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Агрегація і композиція
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      ПОЛІМОРФІЗМ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      ІНКАПСУЛЯЦІЯ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ІНКАПСУЛЯЦІЯ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name-mangling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Name mangling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      ПЕРЕВАНТАЖЕННЯ операторів в Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ПЕРЕВАНТАЖЕННЯ операторів в Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dunder-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Магічні методи (dunder methods)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      ДЕКОРАТОРИ В КЛАСАХ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ДЕКОРАТОРИ В КЛАСАХ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#staticmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ @staticmethod
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ @classmethod
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ @property
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      ДЕСКРИПТОРИ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ДЕСКРИПТОРИ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅Протокол дескриптора
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mro_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Порядок пошуку атрибутів (MRO для дескрипторів)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чому дескриптори кращі за інші підходи
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Приклади використання
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Функції для роботи з классами
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_iterator_generators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ітератори. генератори
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_requests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PYHON -> requests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GIT
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            GIT
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/git_links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/git_definitions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Основні поняття GIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/terminology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Термінологія GIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/git_basic_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Основні команди GIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    LINUX
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            LINUX
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINUX/linux_links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINUX/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ЗАГАЛЬНЕ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Корисні посилання
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ЗАГАЛЬНЕ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_english/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ENGLISH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_cs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ІНФОРМАТИКА
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ІНСТРУМЕНТИ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_important_subjects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ВАЖЛИВІ БАЗОВІ ТЕМИ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    БАЗИ ДАНИХ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    РОБОЧИЙ ПРОЦЕС
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Корисні ресурси
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Терміни
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 Створення класу
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 Створення екземпляру класу
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Створення кастомного методу класу
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Зміна атрибутів
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Наслідування
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Наслідування">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mro" class="md-nav__link">
+    <span class="md-ellipsis">
+      MRO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MRO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c3-linearization" class="md-nav__link">
+    <span class="md-ellipsis">
+      C3 Linearization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Агрегація і композиція
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      ПОЛІМОРФІЗМ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      ІНКАПСУЛЯЦІЯ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ІНКАПСУЛЯЦІЯ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name-mangling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Name mangling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      ПЕРЕВАНТАЖЕННЯ операторів в Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ПЕРЕВАНТАЖЕННЯ операторів в Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dunder-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Магічні методи (dunder methods)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      ДЕКОРАТОРИ В КЛАСАХ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ДЕКОРАТОРИ В КЛАСАХ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#staticmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ @staticmethod
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ @classmethod
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ @property
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      ДЕСКРИПТОРИ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ДЕСКРИПТОРИ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅Протокол дескриптора
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mro_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Порядок пошуку атрибутів (MRO для дескрипторів)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чому дескриптори кращі за інші підходи
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Приклади використання
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Функції для роботи з классами
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Класи</h1>
+
+<h2 id="_1">📚 Корисні ресурси</h2>
+<ul>
+<li><a href="https://docs.python.org/3.7/tutorial/classes.html">Офіційна документація Python 3.7: Classes</a></li>
+<li><a href="https://docs.python.org/3.7/tutorial/classes.html#a-first-look-at-classes">First Look at Classes (офіційно)</a></li>
+<li><a href="https://www.tutorialspoint.com/python/python_classes_objects.htm">TutorialsPoint — Python Classes &amp; Objects</a></li>
+</ul>
+<h2 id="_2">🔑 <strong>Терміни</strong></h2>
+<ul>
+<li><strong>Клас</strong> — це шаблон або креслення для створення об’єктів. Він описує, які властивості (атрибути) та поведінку (методи) матимуть об’єкти (екземпляри) цього класу.</li>
+<li>
+<p><strong>Об'єкт</strong> - екземпляр класу</p>
+</li>
+<li>
+<p><strong>self</strong> — це перший параметр усіх методів екземпляра класу в Python. Через нього метод має доступ до атрибутів і методів конкретного об’єкта.Хоча слово self — не зарезервоване (можна назвати як завгодно), це прийнятий стандарт Python, і його завжди потрібно писати першим аргументом у методах об'єкта.</p>
+</li>
+<li>
+<p><strong>класові змінні (class variables) або атрибути класу</strong></p>
+<ul>
+<li>Зберігаються на рівні класу.</li>
+<li>Спільні для всіх екземплярів класу.</li>
+<li>Якщо змінити їх через клас — зміни побачать усі екземпляри.</li>
+<li>Оголошуються всередині класу, але поза методами.</li>
+</ul>
+</li>
+</ul>
+<pre><code>class Dog:
+    species = &quot;Canis lupus&quot;  # класова змінна
+
+    def __init__(self, name):
+        self.name = name  # атрибут екземпляра
+
+d1 = Dog(&quot;Rex&quot;)
+d2 = Dog(&quot;Buddy&quot;)
+
+print(d1.species)  # Canis lupus
+print(d2.species)  # Canis lupus
+
+Dog.species = &quot;Canis familiaris&quot;
+print(d1.species)  # Canis familiaris
+print(d2.species)  # Canis familiaris
+</code></pre>
+<ul>
+<li><strong>атрибути екземпляра (instance attributes)</strong><ul>
+<li>Створюються в методі <strong>init</strong> або динамічно.</li>
+<li>Унікальні для кожного об’єкта (екземпляру класу).</li>
+<li>Зберігаються в словнику <strong>dict</strong> кожного об'єкта.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">class Dog:
+    def __init__(self, name):
+        self.name = name  # атрибут екземпляра
+
+d1 = Dog(&quot;Rex&quot;)
+d2 = Dog(&quot;Buddy&quot;)
+
+print(d1.name)  # Rex
+print(d2.name)  # Buddy
+</code></pre>
+<ul>
+<li><strong>Метод</strong> — це функція, яка належить до класу і працює з його об'єктами (екземплярами) або з самим класом. Розрізняють:<ul>
+<li>Звичайний метод (instance method)<ul>
+<li>Працює з конкретним об'єктом</li>
+<li>в якості параметра отримує self </li>
+</ul>
+</li>
+<li>Метод класу (class method)<ul>
+<li>Працює з самим класом</li>
+<li>в якості параметра отримує cls</li>
+</ul>
+</li>
+<li>Статичний метод (static method)<ul>
+<li>Просто утилітна функція в класі</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Звичайний метод (instance method)</p>
+<pre><code class="language-python">class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def say_hello(self):  # звичайний метод
+        print(f&quot;Привіт, я {self.name}&quot;)
+
+p = Person(&quot;Олена&quot;)
+p.say_hello()  # Привіт, я Олена
+</code></pre>
+<p>Метод класу (class method)   </p>
+<pre><code class="language-python">class Cat:
+    species = &quot;Кіт&quot;
+
+    @classmethod
+    def get_species(cls):
+        print(f&quot;Всі належать до: {cls.species}&quot;)
+
+Cat.get_species()  # Всі належать до: Кіт      
+</code></pre>
+<p>Статичний метод (static method)    </p>
+<pre><code class="language-python">
+class Math:
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+print(Math.add(3, 5))  # 8
+</code></pre>
+<p><strong>Абстрактний метод</strong> — це метод, який оголошений у базовому класі, але не має реалізації. Він вимагає, щоб усі підкласи обов’язково реалізували його.</p>
+<h2 id="_3">🧱 <strong>Створення класу</strong></h2>
+<pre><code class="language-python">class TestClass():
+    counter = 0 #змінна(атрибут) класу
+
+    def __init__(self, name, surname): # магічний метод-ініціалізатор, про магічні методи інформація нижче
+        self.name = name #атрибут екземпляру класу, унікальний для кожного
+        self.surname = surname
+
+
+</code></pre>
+<h2 id="_4">🧱 <strong>Створення екземпляру класу</strong></h2>
+<pre><code class="language-python">test_obj_1 = TestClass('Ihor', 'Petrenko')
+
+test_obj_2 = TestClass('Solomia', 'Drizd')
+
+#виклик атрибутів екземплярів (окремих об'єктів)
+print(test_obj_1.name)
+#Виведе Ihor
+print(test_obj_2.name)
+#Виведе Solomia
+
+</code></pre>
+<h2 id="_5"><strong>Створення кастомного методу класу</strong></h2>
+<ul>
+<li>якщо ми плануємо в кастомному методі працювати з атрибутами екземпляру, то першим параметром методу вказується <strong>self</strong></li>
+</ul>
+<pre><code class="language-python">class TestClass():
+    counter = 0 #змінна(атрибут) класу
+
+    def __init__(self, name, surname): 
+        self.name = name #атрибут екземпляру класу, унікальний для кожного
+        self.surname = surname
+
+    def do_something(self): #кастомний метод
+        print(f'Name: {self.name}')
+        print(f'Surname: {self.surname}')
+
+
+</code></pre>
+<h2 id="_6">✏️ <strong>Зміна атрибутів</strong></h2>
+<pre><code class="language-python">class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self): # метод 
+        print(f&quot;Hello, {self.name}!&quot;)
+
+p = Person(&quot;Alice&quot;)
+p.greet()  # Hello, Alice!
+
+p.age = 30         # Додаємо новий атрибут
+p.name = &quot;Bob&quot;     # Змінюємо існуючий
+del p.age          # Видаляємо атрибут
+</code></pre>
+<h2 id="_7"><strong>Наслідування</strong></h2>
+<p><strong>Типи наслідування:</strong></p>
+<ul>
+<li>Однорівненве (Single) - [Parent ← Child] - Клас доповнює або змінює єдиного батька</li>
+<li>Багаторівневе (Multilevel) [Grandparent ← Parent ←Child] Кілька рівнів спадкоємності</li>
+<li>Ієрархічне (Hierarchical) - [Parent ← {Child1, Child2}] -  Багато дочірніх класів з однаковою базовою поведінкою</li>
+<li>Множинне (Multiple) - [{Base1, Base2} → Sub] - Об’єднання функцій кількох незалежних батьків</li>
+<li>Гібридне (Hybrid) -  Змішана Комбінація multilevel, multiple, hierarchical за потребою</li>
+</ul>
+<pre><code class="language-python">class Animal:
+    def speak(self):
+        print(&quot;Some sound&quot;)
+
+class Dog(Animal):
+    def speak(self):
+        print(&quot;Bark!&quot;)
+
+d = Dog()
+d.speak()  # Bark!
+</code></pre>
+<ul>
+<li>якщо ми не будемо перевизначати логіку метода-ініціалізатора, то нічого не дописуємо в класу нащадкові</li>
+<li>якщо ми плануємо переписувати метод-ініціалізатор (наприклад, для того щоб передавати додаткові аргументи при ініціалізації екземпляру), треба вказувати в новому методі вираз super().__init()__ ЯЯкщо його не застосувати то не буде виконано логіки методу-ініціалізатору батьківського-класу </li>
+</ul>
+<pre><code class="language-python">class Animal:
+    def __init__(self, type):
+        self.type = type
+
+    def speak(self):
+        print(&quot;Some sound&quot;)
+
+class Dog(Animal):
+    def __init__(self, type, sub_type):
+        super().init(type)
+        self.sub_type = sub_type
+
+    def speak(self):
+        print(&quot;Bark!&quot;)
+
+d = Dog(&quot;савець&quot;, 'canis lupus')
+print(d.type)
+print(d.sub_type)
+d.speak()  # Bark!
+</code></pre>
+<h3 id="mro"><strong>MRO</strong></h3>
+<h4 id="c3-linearization">C3 Linearization</h4>
+<p><img src='../RES/classes_2.png'></img></p>
+<pre><code class="language-python">class H:
+    pass
+
+class D(H):
+    pass
+class E(H):
+    pass
+class F(H):
+    pass
+class G(H):
+    pass
+class B(D, E):
+    pass
+class C(F, G):
+    pass
+class A(B, C):
+    pass
+
+def show_mro(cls_name):
+    return [c.__name__ for c in cls_name.mro()]
+
+print(*show_mro(A), sep = ' -&gt; ')
+</code></pre>
+<pre><code class="language-python"># ВИВОДИТЬ
+A -&gt; B -&gt; D -&gt; E -&gt; C -&gt; F -&gt; G -&gt; H -&gt; object
+</code></pre>
+<p><img src='../RES/classes_1.png'></img></p>
+<pre><code class="language-python">class O:
+    pass
+class C(O):
+    pass
+class A(O):
+    pass
+class B(O):
+    pass
+class D(O):
+    pass
+class E(O):
+    pass
+class K1(C, A, B):
+    pass
+class K2(A, D):
+    pass
+class K3(B, D, E):
+    pass
+class Z(K1, K2, K3):
+    pass
+def show_mro(cls_name):
+    return [c.__name__ for c in cls_name.mro()]
+
+print(*show_mro(Z), sep = ' -&gt; ')
+</code></pre>
+<pre><code class="language-python"># ВИВОДИТЬ
+Z -&gt; K1 -&gt; C -&gt; K2 -&gt; A -&gt; K3 -&gt; B -&gt; D -&gt; E -&gt; O -&gt; object
+</code></pre>
+<h2 id="_8"><strong>Агрегація і композиція</strong></h2>
+<p><strong>Приклад агрегації</strong></p>
+<pre><code class="language-python">class Engine:
+    def start(self):
+        print(&quot;Двигун запущено&quot;)
+
+class Car:
+    def __init__(self, engine):
+        self.engine = engine  # агрегація — об'єкт передається ззовні
+
+    def drive(self):
+        self.engine.start()
+        print(&quot;Авто їде&quot;)
+
+# Створимо Engine окремо
+engine = Engine()
+
+# Передаємо його в Car
+car = Car(engine)
+car.drive()
+</code></pre>
+<p>🔍 Engine існує окремо від Car. Можемо використати один engine для кількох машин або замінити його.</p>
+<p><strong>Приклад композиції</strong></p>
+<pre><code class="language-python">class Engine:
+    def start(self):
+        print(&quot;Двигун запущено&quot;)
+
+class Car:
+    def __init__(self):
+        self.engine = Engine()  # створюється всередині Car — композиція
+
+    def drive(self):
+        self.engine.start()
+        print(&quot;Авто їде&quot;)
+
+car = Car()
+car.drive()
+</code></pre>
+<p>🔍 Engine створюється всередині Car. Якщо Car зникне — двигун більше не існує.</p>
+<h2 id="_9"><strong>ПОЛІМОРФІЗМ</strong></h2>
+<p><strong>Поліморфізм</strong> (від грец. πολύμορφος — "багатоформність") — це концепція об'єктно-орієнтованого програмування, яка дозволяє використовувати один і той самий інтерфейс (метод, функцію, оператор) для об'єктів різних класів.</p>
+<p>У Python поліморфізм означає, що одна й та сама операція або метод може мати різну реалізацію для різних типів об'єктів.</p>
+<p>🔧 Приклад 1: Метод з однаковою назвою в різних класах. Duck typing приклад - "якщо щось виглядає як качка і крякає як качка — воно качка"</p>
+<pre><code class="language-python">class Dog:
+    def speak(self):
+        return &quot;Гав!&quot;
+
+class Cat:
+    def speak(self):
+        return &quot;Мяу!&quot;
+
+# Поліморфізм: одна функція працює з різними типами об'єктів
+def animal_sound(animal):
+    print(animal.speak())
+
+dog = Dog()
+cat = Cat()
+
+animal_sound(dog)  # Гав!
+animal_sound(cat)  # Мяу!
+</code></pre>
+<p>✅ Метод speak() викликається незалежно від типу тварини — і це приклад поліморфізму.
+Тут немає спільного батьківського класу, але об'єкти поводяться однаково, бо мають метод walk() — це і є duck typing.</p>
+<p>🔁 Приклад 2: Поліморфізм через наслідування</p>
+<pre><code class="language-python">class Animal:
+    def speak(self):
+        raise NotImplementedError(&quot;Цей метод треба перевизначити в підкласі&quot;)
+
+class Cow(Animal):
+    def speak(self):
+        return &quot;Мууу&quot;
+
+class Duck(Animal):
+    def speak(self):
+        return &quot;Кря-кря&quot;
+
+animals = [Cow(), Duck()]
+
+for animal in animals:
+    print(animal.speak())
+</code></pre>
+<p>✅ Кожен об'єкт реалізує свою версію методу speak(), хоча вони всі наслідуються від одного базового класу.</p>
+<p><strong>Поліморфізм у Python:</strong></p>
+<ul>
+<li>
+<p>дозволяє створювати код, який працює з об'єктами різних класів однаково,</p>
+</li>
+<li>
+<p>спрощує масштабування та підтримку коду,</p>
+</li>
+<li>
+<p>є ключовою частиною принципів ООП разом з наслідуванням, інкапсуляцією та абстракцією.</p>
+</li>
+</ul>
+<h2 id="_10">ІНКАПСУЛЯЦІЯ</h2>
+<p><strong>Інкапсуляція</strong> — це принцип об'єктно-орієнтованого програмування (ООП), який:</p>
+<p>✅ Приховує внутрішню реалізацію об'єкта (дані і логіку)
+✅ Дозволяє доступ до них тільки через визначений інтерфейс (методи)</p>
+<p>Простими словами:
+Ми «ховаємо» внутрішні змінні та деталі реалізації, щоб інші частини програми не могли їх змінювати напряму, а тільки через методи.</p>
+<p>🧱 У Python немає справжнього «приватного» як у Java чи C++, але… Python використовує домовленість, а не заборону:</p>
+<ul>
+<li>"name" - публічний (public) доступний ззовні</li>
+<li>"_name" - protected (умовно) «не чіпай без потреби»<ul>
+<li>захищені методи (protected) доступні зі свого класу, з класу що наслідується, та з основної програми</li>
+</ul>
+</li>
+<li>"__name" - приватний (private) - напряму не можна в коді поза классом звернутися до такого імені, Python змінює ім’я внутрішньо (манглінг).<ul>
+<li>приватні методи (атрибути, імена) доступні зі свого класу, але закриті для доступу з класу що наслідується, та з основної програми. Проте до них можна добратись через нотацію _{origin Class}__method | attr - тобто "манглінг"</li>
+</ul>
+</li>
+</ul>
+<h3 id="name-mangling">Name mangling</h3>
+<p>Name mangling — це механізм, який Python застосовує до "приватних" атрибутів, тобто тих, що починаються з подвійного підкреслення (__).</p>
+<pre><code class="language-mkdocs">📌 Він автоматично перейменовує ці атрибути, щоб захистити їх від випадкового
+ доступу або перезапису, особливо при успадкуванні класів.
+</code></pre>
+<pre><code class="language-python">class MyClass:
+    def __init__(self):
+        self.__secret = &quot;це приховано&quot;
+
+    def reveal(self):
+        return self.__secret
+
+obj = MyClass()
+print(obj.reveal())           # ✅ &quot;це приховано&quot;
+
+# print(obj.__secret)         # ❌ AttributeError: немає такого атрибута
+
+print(obj._MyClass__secret)   # 🔓 &quot;це приховано&quot; — манглінг!
+</code></pre>
+<h2 id="python">ПЕРЕВАНТАЖЕННЯ операторів в Python</h2>
+<p>У Python ми можемо змінити спосіб роботи операторів з користувацькими типами даних. Наприклад, ми можемо зробити так, щоб оператор + виконував арифметичне додавання двох чисел або об’єднання двох списків або конкатенацію двох рядків.</p>
+<p>Ця можливість в Python, що дозволяє одному і тому ж оператору виконувати різні дії в залежності від контексту, називається <strong>перевантаженням оператора</strong>.</p>
+<h3 id="dunder-methods">🔧 <strong>Магічні методи (dunder methods)</strong></h3>
+<p><strong>Магічні методи</strong> (вони ж спеціальні методи, dunder methods — від double underscore) — це методи, які мають подвійну нижню риску на початку і в кінці імені, наприклад:</p>
+<p>Вони дозволяють керувати поведінкою об'єктів, коли ти:</p>
+<ul>
+<li>створюєш об'єкт,</li>
+<li>викликаєш його як функцію,</li>
+<li>додаєш об’єкти через +,</li>
+<li>викликаєш функції len(), str() тощо.</li>
+</ul>
+<p>🧠 Навіщо вони потрібні?
+Магічні методи дозволяють перевизначати стандартну поведінку Python для твоїх об'єктів.</p>
+<ul>
+<li>першим параметром цього методу завжди іде self, що вказує на екземпляр</li>
+<li>наступним ідуть довільні параметри<ul>
+<li>наприклад, в методі-ініціалізаторі довільна кількість параметрів, які передаватимуться при створенні класа</li>
+<li>в методах де задіянні два екземляри одного класу, наприклад, додавання, віднімання, порівняння і т.д., другим передається other, який вказуватиме на другий об'єкт класу. Коли ми виконуємо p1 + p2, Python викликає метод p1.__add__(p2)</li>
+</ul>
+</li>
+</ul>
+<p>🔹<strong>__new__</strong>
+Цей метод є реальним конструктором об'єкту (екземпляру класу). Викликається автоматично при створенні функції. І на цьому етапі створюється екземпляр</p>
+<p>🔹<strong>__init__</strong> - метод - ініціалізатор
+Цей метод в джерелах називається методом конструктором, хоча насправді ним не являється. А насправді є методом ініціалізатором. Бо викликається після методу __new__. При виклику методу вже можна отримати id від селф. Тобто на цей момент об'єкт вже існує.  який викликається автоматично при створенні екземпляру (об'єкту) класу. </p>
+<pre><code class="language-python">class Person:
+    def __init__(self, name):
+        self.name = name
+
+p = Person(&quot;Оля&quot;)
+print(p.name)  # Оля
+</code></pre>
+<p>🔹<strong>__del__</strong> - метод-деструктор
+Викликається автоматично, при знищенні екземпляру. Він викликається, коли всі посилання на об’єкт були видалені, тобто коли об’єкт очищується збирачем сміття.</p>
+<pre><code class="language-python">class Employee:
+    # Конструктор класу
+    def __init__(self):
+        print('Employee created.')
+
+    # Деструктор класу
+    def __del__(self):
+        print('Destructor called, Employee deleted.')
+
+obj = Employee()
+del obj
+</code></pre>
+<p>🧠Примітка: Деструктор викликається після завершення програми або коли всі посилання на об’єкт видалені,тобто коли лічильник посилань стає рівним нулю, а не коли об’єкт виходить з області видимості. Посилання на об’єкт також видаляється, коли об’єкт виходить з області видимості.</p>
+
+<p>🔹<strong>__str__</strong> - як об’єкт виглядає в print()
+Перезаписує логіку прінта об'єкта. 
+* Перезаписує яка саме вивожиться інфа для виразу print(obj)
+* також якщо через прінт ми виводимо колекцію і перед нею ставимо * , то рядкові значення братимуться саме з цього методу</p>
+<p>🔹<strong>__repr__</strong>
+Робить те ж саме, що і __str__  Відмінність в тому, що викликається після. 
+* Cаме ця функція викликається, коли в інтерпретаторі ми вводиом просто ім'я змінної, натискаємо Ентер і нам виводить значення змінної.
+* також саме з неї беруться значення, коли через прінт роздруковуємо список</p>
+<p>🔹<strong>__add__</strong>  — для операції +</p>
+<pre><code class="language-python">class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
+    def __str__(self):
+        return f&quot;({self.x}, {self.y})&quot;
+
+p1 = Point(1, 2)
+p2 = Point(3, 4)
+print(p1 + p2)  # (4, 6)
+</code></pre>
+<p>🧠Коли ми виконуємо p1 + p2, Python викликає метод p1.<strong>add</strong>(p2), який, в свою чергу, є Point.<strong>add</strong>(p1,p2)</p>
+<p>🔹<strong>__eq__</strong> — заміняє логіка для оператора ==</p>
+<pre><code class="language-python">class Cat:
+    def __init__(self, name):
+        self.name = name
+
+    def __eq__(self, other):
+        return self.name == other.name
+
+print(Cat(&quot;Мурка&quot;) == Cat(&quot;Мурка&quot;)) # True
+</code></pre>
+<p>🔹 __len__ — для функції len()</p>
+<pre><code class="language-python">class MyList:
+    def __init__(self, items):
+        self.items = items
+
+    def __len__(self):
+        return len(self.items)
+
+ml = MyList([1, 2, 3])
+print(len(ml))  # 3
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Призначення</th>
+<th style="text-align: left;">Коли викликається або Вираз</th>
+<th style="text-align: left;">Магічний метод</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Спеціальні методи класу</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Метод-конструктор. Після його виконання об'єкт фактично створено і він має ідентифікатор ( можна добути через id(self))</td>
+<td style="text-align: left;">Автоматично викливкається при створення нового об'єкта (екземпляра класа)</td>
+<td style="text-align: left;">__new__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Метод-ініціалізатор. Ініціалізує атрибути об’єкта.</td>
+<td style="text-align: left;">Автоматично викликається після методу __new__</td>
+<td style="text-align: left;">__init__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Повертає рядкове представлення об’єкта.</td>
+<td style="text-align: left;">Викликається, наприклад, коли ми передаємо об'єкт як аргумент до функції print()</td>
+<td style="text-align: left;">__str__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Повертає довжину об’єкта.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">__len__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Викликає об’єкти класу як звичайна функція.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">__call__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Метод-деструктор</td>
+<td style="text-align: left;">Автоматично викликається, коли на об'єкт немає жодного посилання, коли він видаляється</td>
+<td style="text-align: left;">__del__</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Арифметичні операції з об'єктами одного класу</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Додавання (+)</td>
+<td style="text-align: left;">p1 + p2</td>
+<td style="text-align: left;">__add__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Віднімання(-)</td>
+<td style="text-align: left;">p1 – p2</td>
+<td style="text-align: left;">__sub__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Множення (*)</td>
+<td style="text-align: left;">p1 * p2</td>
+<td style="text-align: left;">__mul__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Піднесення до степеня (**)</td>
+<td style="text-align: left;">p1 ** p2</td>
+<td style="text-align: left;">__pow__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ділення (/)</td>
+<td style="text-align: left;">p1 / p2</td>
+<td style="text-align: left;">__truediv__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ділення з відкиданням дробової частини (//)</td>
+<td style="text-align: left;">p1 // p2</td>
+<td style="text-align: left;">__floordiv__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Залишок від ділення (%)</td>
+<td style="text-align: left;">p1 % p2</td>
+<td style="text-align: left;">__mod__</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Логічні операції з об'єктами одного типу</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Менше ніж (&lt;)</td>
+<td style="text-align: left;">p1 &lt; p2</td>
+<td style="text-align: left;">__lt__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Менше або Дорівнює (&lt;=)</td>
+<td style="text-align: left;">p1 &lt;= p2</td>
+<td style="text-align: left;">__le__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Дорівнює (==)</td>
+<td style="text-align: left;">p1 == p2</td>
+<td style="text-align: left;">__eq__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Не дорівнює (!=)</td>
+<td style="text-align: left;">p1 != p2</td>
+<td style="text-align: left;">__ne__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Більше ніж (&gt;)</td>
+<td style="text-align: left;">p1 &gt; p2</td>
+<td style="text-align: left;">__gt__</td>
+</tr>
+<tr>
+<td style="text-align: left;">Більше або Дорівнює (&gt;=)</td>
+<td style="text-align: left;">p1 &gt;= p2</td>
+<td style="text-align: left;">__ge__</td>
+</tr>
+</tbody>
+</table>
+<p>🧠Магічних методів є набагато  більше. Подивитись їх перелік можемо, використовуючи функцію print(dir(object))</p>
+<h2 id="_11">ДЕКОРАТОРИ В КЛАСАХ</h2>
+<p>🧰 <code>@staticmethod</code>, <code>@classmethod</code>, <code>@property</code></p>
+<h3 id="staticmethod">✅ @staticmethod</h3>
+<p>🔹 Що це?
+<code>@staticmethod</code> — це метод, який не отримує ні <code>self</code>, ні <code>cls</code>. Це просто функція, що "живе" всередині класу.</p>
+<p>🔹 Коли використовувати?
+- Коли метод <strong>логічно належить до класу</strong>, але <strong>не використовує атрибути об'єкта чи класу</strong>.</p>
+<p>🔹 Синтаксис та приклад:</p>
+<pre><code class="language-python">class MathUtils:
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+print(MathUtils.add(3, 4))  # 7
+</code></pre>
+<p>🔹 Особливості:
+Не має доступу до екземпляру або класу.</p>
+<p>Можна викликати як через клас, так і через екземпляр.</p>
+<h3 id="classmethod">✅ @classmethod</h3>
+<p>🔹 Що це?
+Метод, який отримує посилання на сам клас (cls) замість self.</p>
+<p><strong>Коли використовувати?:</strong></p>
+<ul>
+<li>Створення альтернативних конструкторів.</li>
+<li>Потрібна взаємодія з самим класом, а не об'єктом.</li>
+<li>У спадковості — коли підклас повинен створити себе сам.</li>
+</ul>
+<p>🔹 Синтаксис та приклад:</p>
+<pre><code class="language-python">class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @classmethod
+    def from_birth_year(cls, name, birth_year):
+        from datetime import datetime
+        age = datetime.now().year - birth_year
+        return cls(name, age)
+
+p = Person.from_birth_year(&quot;Anna&quot;, 2000)
+print(p.name, p.age)  # Anna 25 (або поточний вік)
+</code></pre>
+<p><strong>Особливості:</strong>
+Має доступ до самого класу (cls).</p>
+<p>Зручно для фабричних методів, альтернативних способів створення об'єктів.</p>
+<h3 id="property">✅ @property</h3>
+<p>🔹 Що це?
+Декоратор, який дозволяє звертатися до методів як до звичайних атрибутів. Допомагає створювати інкапсульовані властивості класу.</p>
+<p>🔹 Коли використовувати?
+Коли хочете приховати внутрішню реалізацію атрибута.</p>
+<p>Коли потрібно виконати логіку при доступі/зміні атрибута.</p>
+<p>🔹 Синтаксис та приклад:</p>
+<pre><code class="language-python">class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+
+    @property
+    def radius(self):
+        return self._radius
+
+    @radius.setter
+    def radius(self, value):
+        if value &lt; 0:
+            raise ValueError(&quot;Радіус не може бути від’ємним&quot;)
+        self._radius = value
+
+    @property
+    def area(self):
+        import math
+        return math.pi * self._radius ** 2
+
+c = Circle(5)
+print(c.radius)     # 5
+print(c.area)       # 78.5398...
+c.radius = 10
+</code></pre>
+<p>Особливості:
+- Атрибут виглядає як змінна, але під капотом — це метод.
+- Можна визначити <code>getter</code>, <code>setter</code>, <code>deleter</code>.</p>
+<hr />
+<p>🆚 <code>@property</code> vs Getter/Setter (Java-стиль)</p>
+<table>
+<thead>
+<tr>
+<th>Характеристика</th>
+<th><code>@property</code></th>
+<th>Getter/Setter (<code>get_</code>, <code>set_</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Синтаксис</td>
+<td><code>obj.attr</code></td>
+<td><code>obj.get_attr()</code></td>
+</tr>
+<tr>
+<td>Інкапсуляція</td>
+<td>✅ Так</td>
+<td>✅ Так</td>
+</tr>
+<tr>
+<td>Простота</td>
+<td>✅ Лаконічно</td>
+<td>❌ Більш громіздко</td>
+</tr>
+<tr>
+<td>Зміна без переписування</td>
+<td>✅ Не змінює інтерфейс</td>
+<td>❌ Потребує змін</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Порада:</strong><br />
+Використовуй <code>@property</code>, коли потрібно гнучко інкапсулювати доступ до атрибута.</p>
+<hr />
+<p>🔁 Порівняльна таблиця декораторів</p>
+<table>
+<thead>
+<tr>
+<th>Декоратор</th>
+<th>Отримує</th>
+<th>Мета</th>
+<th>Як викликати</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@staticmethod</code></td>
+<td>нічого</td>
+<td>Незалежна логіка</td>
+<td>Через клас або об'єкт</td>
+</tr>
+<tr>
+<td><code>@classmethod</code></td>
+<td><code>cls</code></td>
+<td>Робота з класом/альтернативні конструктори</td>
+<td>Через клас або об'єкт</td>
+</tr>
+<tr>
+<td><code>@property</code></td>
+<td><code>self</code></td>
+<td>Інкапсуляція, керований доступ до атрибута</td>
+<td>Через об'єкт як <code>.attr</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>🧠 Шпаргалка для запам’ятовування</p>
+<ul>
+<li><strong><code>staticmethod</code></strong>: як функція в класі.</li>
+<li><strong><code>classmethod</code></strong>: має доступ до класу.</li>
+<li><strong><code>property</code></strong>: виглядає як атрибут, поводиться як метод.</li>
+</ul>
+<h2 id="_12">ДЕСКРИПТОРИ</h2>
+<p><strong>Дескриптор</strong> – це клас, який контролює доступ до атрибутів <strong>іншого класу</strong> за допомогою спеціальних методів. Він реалізує один або декілька методів дескрипторного протоколу: <code>__get__</code>,   <code>__set__</code>, <code>__delete__</code>. </p>
+<blockquote>
+<p>Якщо клас реалізує хоча б один із них — він стає <strong>дескриптором</strong>.</p>
+</blockquote>
+<p>Він «перехоплює» доступ до атрибутів, заданих як змінні класу, і дозволяє змінити стандартну поведінку при читанні чи записі таких атрибутів. Наприклад, вбудовані механізми Python – перетворення функцій у зв’язані методи, а також @property, @classmethod, @staticmethod, functools.cached_property – всі реалізовані через дескриптори. Дескриптори надають гнучкий «гачок» на етапі пошуку атрибутів, даючи можливість даним (об’єкту, що відповідає за значення атрибуту) вирішувати, як обробляти доступ.</p>
+<p><strong>Приклад:</strong> простий дескриптор, що повідомляє про доступ до атрибуту при читанні і при встановленні значення:</p>
+<pre><code class="language-python"># Клас-дескриптор, який виводить повідомлення при доступі до атрибуту
+class VerboseAttribute:
+    def __get__(self, obj, objtype=None):
+        print(&quot;Отримуємо значення атрибуту&quot;)
+        return 42
+    def __set__(self, obj, value):
+        print(f&quot;Встановлюємо атрибут у значення {value}&quot;)
+        raise AttributeError(&quot;Значення атрибуту не можна змінити&quot;)
+
+class Foo:
+    attribute1 = VerboseAttribute()
+
+foo = Foo()
+print(foo.attribute1)   # виведе повідомлення і 42
+foo.attribute1 = 10     # викличе помилку AttributeError
+</code></pre>
+<blockquote>
+<p>Як видно, при зверненні foo.attribute1 викликається метод <code>__get__</code>, а при спробі присвоїти – метод <code>__set__</code> дескриптора</p>
+</blockquote>
+<hr />
+<p>🧠 <strong>Навіщо потрібні дескриптори?</strong>
+✅ Практичне використання:</p>
+<ul>
+<li>Реалізація @property, @staticmethod, @classmethod.</li>
+<li>Валідація значень (наприклад, int, str, діапазони).</li>
+<li>Кешування/обчислення при доступі.</li>
+<li>ORM (як у Django: models.CharField(), models.ForeignKey() тощо).</li>
+<li>Інкапсуляція атрибутів з додатковою логікою.</li>
+</ul>
+<hr />
+<p><strong>Різновиди дескрипторів: data vs non-data</strong></p>
+<p>Якщо дескриптор реалізує методи <code>__set__</code> або <code>__delete__</code>, він називається <strong>data-дескриптором</strong>. Якщо ж описується лише методом <code>__get__</code>, це <strong>non-data дескриптор</strong></p>
+<blockquote>
+<p>Різниця не тільки в назві, а й у пріоритеті обробки: data-дескриптори мають вищий пріоритет за будь-який атрибут із таким же іменем в <code>__dict__</code> екземпляра, тоді як non-data-дескриптор може бути перекритий значенням у <code>__dict__</code>. Тобто якщо екземпляр вже містить атрибут з таким ім’ям, то non-data-дескриптор при доступі буде проігнорований на користь атрибуту екземпляра, а data-дескриптор навпаки «переб’є» запис у <code>__dict__</code>.</p>
+</blockquote>
+<ul>
+<li><strong>Data-дескриптор</strong> (<code>__set__</code>/<code>__delete__</code> реалізовані): має найвищий пріорітет при пошуку змінної.</li>
+<li><strong>Non-data дескриптор</strong> (тільки <code>__get__</code>): може бути обійдений атрибутом екземпляра (спочатку при зверненні до атрибуту об'єкта (для отримання значення) буде здійснено пошук в <code>__dict__</code> цього об'єкта)</li>
+</ul>
+<hr />
+<h3 id="_13">✅<strong>Протокол дескриптора</strong></h3>
+<ul>
+<li><code>__get__</code></li>
+<li><code>__set__</code></li>
+<li><code>__delete__</code></li>
+<li><code>__set_name__</code></li>
+</ul>
+<p><strong>__get__(self, instance, owner)</strong> - – викликається при доступі до атрибуту. Якщо виклик здійснено через клас (тобто instance є None), часто метод повертає сам об’єкт дескриптора, інакше – оброблене значення.</p>
+<ul>
+<li>self - Екземпляр дескриптора в класі де він створюється. Потрібен для долступу до власного стану дескриптора</li>
+<li>instance - екземпляр класу, де викликано атрибут. Потрібний, щоб звернутись до об'єкта, який використовує дескриптор</li>
+<li>owner - клас, до якого належить атрибут. Це сам клас — використовується рідше</li>
+</ul>
+<pre><code class="language-python">class DemoDescriptor:
+    def __get__(self, instance, owner):
+        print(f&quot;self: {self}&quot;)
+        print(f&quot;instance: {instance}&quot;)
+        print(f&quot;owner: {owner}&quot;)
+        return &quot;значення&quot;
+
+class MyClass:
+    attr = DemoDescriptor()
+
+obj = MyClass()
+value = obj.attr
+</code></pre>
+<p><strong><code>__set__</code>(self, instance, value)</strong> - викликається при записі instance.x = value. Може проводити валідацію, перетворення чи зберігати значення у прихованому атрибуті екземпляра.</p>
+<ul>
+<li>self - Екземпляр дескриптора</li>
+<li>insance - екземпляр класу, де викликано атрибут.</li>
+<li>value - нове значення</li>
+</ul>
+<p><strong><code>__delete__</code>(self, instance)</strong> - викликається при видаленні атрибуту del instance.x </p>
+<ul>
+<li>self - Екземпляр дескриптора</li>
+<li>instance - екземпляр класу, де викликано атрибут.</li>
+</ul>
+<p><strong><code>__set_name__</code>(self, owner, name)</strong> - якщо присутній, викликається автоматично при визначенні нового класу, в який додається дескриптор. Через нього дескриптор дізнається своє ім’я (і клас-власник).</p>
+<ul>
+<li>self - Екземпляр дескриптора</li>
+<li>owner - клас, у якому знаходиться дескриптор.</li>
+<li>name - ім’я атрибута, через яке дескриптор доступний у класі.<blockquote>
+<p>Цей метод не є обов’язковим, але часто використовується для збереження імені атрибута всередині дескриптора (наприклад, для валідації або логування).</p>
+</blockquote>
+</li>
+</ul>
+<p>🧪 Приклад використання <code>__set_name__</code></p>
+<pre><code class="language-python">Copy
+Edit
+class MyDescriptor:
+    def __set_name__(self, owner, name):
+        self.name = name  # зберігаємо ім’я атрибута
+
+    def __get__(self, instance, owner):
+        print(f&quot;Отримуємо {self.name}&quot;)
+        return instance.__dict__.get(self.name)
+
+    def __set__(self, instance, value):
+        print(f&quot;Встановлюємо {self.name} = {value}&quot;)
+        instance.__dict__[self.name] = value
+
+
+class MyClass:
+    x = MyDescriptor()
+    y = MyDescriptor()
+
+
+obj = MyClass()
+obj.x = 10  # Встановлюємо x = 10
+obj.y = 20  # Встановлюємо y = 20
+
+print(obj.x)  # Отримуємо x → 10
+print(obj.y)  # Отримуємо y → 20
+</code></pre>
+<hr />
+<h3 id="mro_1"><strong>Порядок пошуку атрибутів (MRO для дескрипторів)</strong></h3>
+<ol>
+<li>При зверненні до виразу obj.x Python шукає атрибут x у кількох “просторах імен” у певній послідовності:
+Data-дескриптори у класі (мають найвищий пріоритет). Якщо клас obj має дескриптор x з __set__/__delete__, спочатку виконується його __get__</li>
+<li>Атрибути екземпляра: далі перевіряється наявність x в obj.<strong>dict</strong></li>
+<li>Non-data-дескриптори у класі: якщо на попередніх кроках нічого не знайдено, шукається дескриптор з лише <strong>get</strong>. Якщо знайдено – викликається його <strong>get</strong>.</li>
+<li>Звичайні атрибути класу: якщо x є звичайним полем класу (не дескриптором), його значення повертається.</li>
+<li><strong>getattr</strong>: якщо ніде не знайдено атрибута, викликається метод <strong>getattr</strong> (якщо він визначений).</li>
+</ol>
+<p>Таким чином, порядок такий: data-дескриптор → поле екземпляра → non-data-дескриптор → атрибут класу → <strong>getattr</strong>
+. Наприклад, при виклику a.x Python спочатку перевіряє, чи є у класу a data-дескриптор x, потім дивиться a.<strong>dict</strong>, потім шукає non-data-дескриптор і далі – звичайний атрибут класу</p>
+<hr />
+<p>📌 Простий приклад дескриптора</p>
+<pre><code class="language-python">class MyDescriptor:
+    def __get__(self, instance, owner):
+        print(&quot;Викликано __get__&quot;)
+        return instance._value
+
+    def __set__(self, instance, value):
+        print(&quot;Викликано __set__&quot;)
+        instance._value = value
+
+    def __delete__(self, instance):
+        print(&quot;Викликано __delete__&quot;)
+        del instance._value
+
+class MyClass:
+    attr = MyDescriptor()
+
+obj = MyClass()
+obj.attr = 10       # Викликано __set__
+print(obj.attr)     # Викликано __get__ → 10
+del obj.attr        # Викликано __delete__
+</code></pre>
+<p>🔧 <strong>Дескриптор з валідацією</strong></p>
+<pre><code class="language-python">class PositiveNumber:
+    def __set__(self, instance, value):
+        if value &lt; 0:
+            raise ValueError(&quot;Має бути число &gt; 0&quot;)
+        instance._x = value
+
+    def __get__(self, instance, owner):
+        return instance._x
+
+class Product:
+    price = PositiveNumber()
+
+p = Product()
+p.price = 100     # OK
+print(p.price)    # 100
+p.price = -5      # ValueError!
+</code></pre>
+<hr />
+<h3 id="_14"><strong>Чому дескриптори кращі за інші підходи</strong></h3>
+<p>Дескриптори дають можливість концентрувати логіку управління атрибутом в одному місці і повторно її використовувати для багатьох класів чи властивостей. Замість того, щоб дублювати код у багатьох @property або у методах <code>__setattr__</code>, можна описати дескриптор й підключити його до необхідних полів. Це робить код більш підтримуваним і DRY (неповторним). Наприклад, у звичайному підході доводилося б описувати 5 майже однакових властивостей з однаковою логікою перевірки (див. приклад RealPython):</p>
+<pre><code class="language-python">
+class Values:
+    @property
+    def value1(self):
+        return self._value1
+    @value1.setter
+    def value1(self, value):
+        self._value1 = value if value % 2 == 0 else 0
+
+    # Аналогічні value2, value3, value4, value5 – код дублюється...
+</code></pre>
+<p>Використовуючи дескриптор, ту ж саму поведінку можна винести в єдине місце:</p>
+<pre><code class="language-python">class EvenNumber:
+    def __set_name__(self, owner, name):
+        self.name = name
+    def __get__(self, obj, cls=None):
+        return obj.__dict__.get(self.name, 0)
+    def __set__(self, obj, value):
+        obj.__dict__[self.name] = (value if value % 2 == 0 else 0)
+
+class Values:
+    value1 = EvenNumber()
+    value2 = EvenNumber()
+    value3 = EvenNumber()
+    value4 = EvenNumber()
+    value5 = EvenNumber()
+</code></pre>
+<p>Крім того, дескриптори працюють на рівні мови: вони інтегровані у механізм пошуку атрибутів <strong>getattribute</strong>. Це дає більшу гнучкість, ніж, скажімо, перевантаження <strong>getattr</strong> або <strong>setattr</strong>, адже дескриптор може точно «знати» своє ім’я (через <strong>set_name</strong>), працювати незалежно для кожного атрибута й легко перевіряти чи модифікувати доступ. Зазвичай стандартні механізми (property, ORM, кешуючі властивості тощо) вже побудовані на дескрипторах, що свідчить про їхню силу і гнучкість.</p>
+<h3 id="_15"><strong>Приклади використання</strong></h3>
+<p><strong>Валідація значень:</strong> дескриптор може перевіряти нове значення перед записом та кидати помилку, якщо воно некоректне. Наприклад, дескриптор EvenNumber з прикладу реалізує політику «лише парні числа»</p>
+<p><strong>Приклад:</strong> дескриптор, що дозволяє зберігати в атрибуті лише парні числа (в іншому випадку ставить 0)</p>
+<pre><code class="language-python">
+class EvenNumber:
+    def __set_name__(self, owner, name):
+        self.name = name
+
+    def __get__(self, obj, cls=None):
+        return obj.__dict__.get(self.name, 0)
+
+    def __set__(self, obj, value):
+        # Зберігаємо value, якщо воно парне; інакше – 0
+        obj.__dict__[self.name] = (value if value % 2 == 0 else 0)
+
+class Values:
+    value1 = EvenNumber()
+    value2 = EvenNumber()
+
+v = Values()
+v.value1 = 5
+print(v.value1)   # 0 (5 непарне, збереглося 0)
+v.value2 = 8
+print(v.value2)   # 8
+</code></pre>
+<blockquote>
+<p>У цьому прикладі логіка перевірки значення і поміщення результату в <code>__dict__</code> екземпляра зосереджена в одному місці (методі дескриптора)</p>
+</blockquote>
+<p><strong>Кешування (lazy-обчислення):</strong> за допомогою дескриптора можна реалізувати відкладені (lazy) властивості, які обчислюються лише один раз при першому доступі, а потім зберігаються. У стандартній бібліотеці є декоратор @functools.cached_property, який саме так і працює – реалізований через дескриптор</p>
+<p><strong>@property і подібні:</strong> сам декоратор @property реалізовано через дескриптор (data-дескриптор). Він дозволяє створювати властивості для читання (і запису, якщо визначено @x.setter).</p>
+<pre><code class="language-python">class Circle:
+    def __init__(self, radius):
+        self._r = radius
+
+    @property
+    def area(self):
+        # Площа кола за радіусом _r
+        return 3.14 * self._r ** 2
+</code></pre>
+<p>Тут area реалізовано як дескриптор: при зверненні c.area викликається метод <code>__get__</code> об’єкта property, який обчислює і повертає площу.</p>
+<p><strong>Django ORM:</strong>в Django поля моделі використовують дескриптори для керування доступом до даних. Наприклад, під час визначення моделі class Book(models.Model): title = models.CharField(...), Django створює дескриптор поля title, який контролює зчитування і запис даних з бази.</p>
+<p>Дескриптори в Django-ORM роблять так, що при доступі instance.field викликається метод <code>__get__</code> дескриптора поля (наприклад, для динамічної валідації чи завантаження з БД), а при присвоєнні instance.field = value – метод <code>__set__</code>. Як пише один із розробників Django: «Descriptors are neat: they’re a way of overriding what happens when you access a class attribute… by setting Document.text to a MarkdownDescriptor, ми викликаємо descriptor.<code>__get__</code> щоразу, коли звертаються до doc.text»</p>
+<h2 id="_16">Функції для роботи з классами</h2>
+<p>setattr() - корисна коли треба додавати атрибути динамічно, особливо коли невідомо заздалегідь ім'я майбутнього атрибута
+hasattr()
+getattr()
+delattr()</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Футер" >
+        
+          
+          <a href="../python_namespace_scope/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Простір імен, область видимості">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Простір імен, область видимості
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../python_iterator_generators/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Ітератори. генератори">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Ітератори. генератори
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["search.highlight", "navigation.footer", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>

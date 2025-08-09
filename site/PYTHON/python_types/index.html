@@ -1,0 +1,2085 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../python_links/">
+      
+      
+        <link rel="next" href="../python_operators/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Типи даних - My Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="My Documentation" class="md-header__button md-logo" aria-label="My Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Типи даних
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Темний"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Темний" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Світлий"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Світлий" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Головна
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Markdown_Cheatsheet/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Написання документації
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../python_links/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  PYTHON
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../GIT/git_links/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  GIT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../LINUX/linux_links/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  LINUX
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../LINKS/links_basic/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Корисні посилання
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Documentation" class="md-nav__button md-logo" aria-label="My Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Головна
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Написання документації
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Написання документації
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Markdown_Cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Markdown Basic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sphinx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sphinx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    PYTHON
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            PYTHON
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Типи даних
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Типи даних
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Змінні та незмінні типи
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nonetype-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 NoneType (None)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Числові типи даних
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Числові типи даних">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Цілочисельний тип даних
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Числовий тип із плаваючою крапкою
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Булевий тип
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Рядковий тип
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Колекції (Collections)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Колекції (Collections)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    <span class="md-ellipsis">
+      list (список)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      tuple (кортеж)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-frozenset" class="md-nav__link">
+    <span class="md-ellipsis">
+      set та frozenset (множини)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict" class="md-nav__link">
+    <span class="md-ellipsis">
+      dict (словник)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Приведення типів
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#truthy-falsy-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Приведення типів у логічних виразах (Truthy / Falsy) в Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Перевірка типів
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Анотації типів (Type Annotations)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Оператори
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_namespace_scope/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Простір імен, область видимості
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Класи
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_iterator_generators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ітератори. генератори
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_requests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PYHON -> requests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GIT
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            GIT
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/git_links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/git_definitions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Основні поняття GIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/terminology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Термінологія GIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/git_basic_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Основні команди GIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    LINUX
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            LINUX
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINUX/linux_links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINUX/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ЗАГАЛЬНЕ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Корисні посилання
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ЗАГАЛЬНЕ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_english/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ENGLISH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_cs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ІНФОРМАТИКА
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ІНСТРУМЕНТИ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_important_subjects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ВАЖЛИВІ БАЗОВІ ТЕМИ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    БАЗИ ДАНИХ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    РОБОЧИЙ ПРОЦЕС
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Змінні та незмінні типи
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nonetype-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 NoneType (None)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Числові типи даних
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Числові типи даних">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Цілочисельний тип даних
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Числовий тип із плаваючою крапкою
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Булевий тип
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Рядковий тип
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Колекції (Collections)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Колекції (Collections)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    <span class="md-ellipsis">
+      list (список)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      tuple (кортеж)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-frozenset" class="md-nav__link">
+    <span class="md-ellipsis">
+      set та frozenset (множини)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict" class="md-nav__link">
+    <span class="md-ellipsis">
+      dict (словник)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Приведення типів
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#truthy-falsy-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Приведення типів у логічних виразах (Truthy / Falsy) в Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Перевірка типів
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Анотації типів (Type Annotations)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Типи даних</h1>
+
+<h2 id="_1">📌 Змінні та незмінні типи</h2>
+<p>У Python більшість вбудованих типів є незмінними (immutable). До незмінних відносяться числові типи (int, float, complex), а також bool (похідний від int), str (рядок), bytes, tuple і frozenset
+. Незмінний об’єкт не можна змінити після створення; наприклад, цілочисельні чи рядкові значення перепризначаються як нові об’єкти. </p>
+<p>Натомість змінні типи дозволяють змінювати свій вміст у місці. До них належать list, dict (словник) і set (множина). Наприклад, list і dict підтримують методи, що додають/видаляють елементи на місці, не створюючи нового об’єкта.</p>
+<h2 id="nonetype-none">📌 NoneType (None)</h2>
+<p>Опис: None – єдиний екземпляр типу NoneType. Використовується для позначення відсутності значення (наприклад, коли функція нічого не повернула). Цей об’єкт не підтримує жодних операцій над своїм вмістом.
+Змінюваність: незмінний (singelton). Єдиний екземпляр – об’єкт None. Вираз type(None)() повертає те саме None.
+Стандартні функції: Для None застосовні тільки базові: type(None), isinstance(obj, type(None)). bool(None) повертає False. None також є false-подібним значенням у булевому контексті.
+Методи: Власних методів у None нема.</p>
+<h2 id="_2">📌 Числові типи даних</h2>
+<h3 id="_3">Цілочисельний тип даних</h3>
+<p>int (цілий тип)
+Опис: Тип int призначений для цілих чисел довільної точності. Цілі числа незмінні (immutable) – їх значення не може бути змінено після створення.
+Змінюваність: незмінний.
+Стандартні функції: можна застосовувати загальні вбудовані функції, наприклад type(x), isinstance(x, int), а також числові: abs(x), pow(x, y) та функцію перетворення int(x). (Наприклад, int("123") повертає 123.)
+Методи: У int є додаткові методи для роботи з двійковим представленням і статистикою бітів, такі як:
+* x.bit_length() – число бітів у двійковому представленні без знаку
+* x.bit_count() – кількість одиниць у двійковому представленні (популяційний обчислювач)
+* x.to_bytes(length, byteorder, <em>, signed) – перетворює ціле число в байти; і відповідний клас-метод int.from_bytes(bytes, byteorder, </em>, signed).
+* Інші методи, отримані від абстрактних базових класів, забезпечують операції порівняння, арифметику (+, -, *, // тощо) і бітові операції (&amp;, |, ^, &lt;&lt;, &gt;&gt;, ~).</p>
+<h3 id="_4">Числовий тип із плаваючою крапкою</h3>
+<p>float (дійсний тип)
+Опис: Тип float представляє числа з плаваючою крапкою (двійкові float за стандартом IEEE754). Це також незмінний (immutable) тип.
+Змінюваність: незмінний.
+Стандартні функції: Загальні вбудовані: type(x), isinstance(x, float), abs(x), round(x, n) тощо, а також перетворення float(x). Наприклад, float("3.14") поверне 3.14.
+Методи: Для float доступні методи:
+* x.as_integer_ratio() – пару цілих чисел (p, q), що дорівнюють r = p/q (для представлення числа як дробу)
+* x.is_integer() – повертає True, якщо число дійсне але цілочисельне (наприклад, 2.0), інакше False
+* x.hex() і клас-метод float.fromhex(s) – перетворюють число в шестнадцятковий формат і назад (точне відображення)</p>
+<p>Для перетворень також працюють int(x) (округлює до цілого) і str(x).</p>
+<h2 id="_5">📌 Булевий тип</h2>
+<p>bool (логічний тип)
+Опис: Тип bool представляє булеві значення True і False. Має лише два екземпляри – True (1) і False (0). bool є підкласом int, тому чисельно True == 1, False == 0, але рекомендується не покладатися на це і явно конвертувати через int().
+Змінюваність: незмінний.
+Стандартні функції: type(x), isinstance(x, bool), а також bool(x) – функція перетворення до булевого (bool("") дає False, bool(5) дає True тощо). Логічні операції задаються and, or, not. Також можна застосовувати побітові &amp;, |, ^, але вони працюють як логічні для булевих.
+Методи: Окрім стандартних методів від int (якщо потреба), власних методів bool не має.</p>
+<h2 id="_6">📌 Рядковий тип</h2>
+<p>str (рядок)
+Опис: str – послідовність символів Unicode (текстовий тип). Рядки є незмінними (immutable) послідовностями символів. У Python немає окремого “символьного” типу; кожен символ – це рядок довжиною 1.
+Змінюваність: незмінний. Для ефективної побудови рядків використовують методи типу str.join() або io.StringIO замість послідовного додавання.
+Стандартні функції: len(s), type(s), isinstance(s, str), sorted(s) (поверне список символів у відсортованому порядку), str(x) (конвертація будь-якого об’єкта в рядок), а також форматування (f"{...}", format(), % тощо, про що далі).
+Методи: str має багато методів для обробки тексту. Основні з них:
+* Робота з випадком: s.lower(), s.upper(), s.title(), s.capitalize(), s.casefold().
+* Пошук і заміна: s.find(sub), s.index(sub), s.count(sub), s.replace(old, new), s.startswith(prefix), s.endswith(suffix).
+* Розбивання і з’єднання: s.split(sep), s.rsplit(sep), s.strip(chars), s.rstrip(chars), s.lstrip(chars), sep.join(iterable) (де sep – рядок).
+* Форматування: s.format(...) (див. нижче) та «старий» оператор %.
+* Інші: s.center(width), s.count(), s.encode(), s.replace(), s.format(), s.split(), s.strip(), s.join(), тощо (повний перелік – в документації).</p>
+<p>Форматування рядків
+Python підтримує кілька способів форматувати рядки:
+* Оператор % (старий стиль, «printf-форматування»): Використовується format_string % values. Форматні специфікатори (%s, %d, %f тощо) у рядку замінюються елементами values (кортеж або словник). Наприклад, '%s має %d яблук' % ('Юля', 5) дасть "Юля має 5 яблук". Цей спосіб корениться в C-функції sprintf().
+* Метод str.format(): У форматному рядку {} позначають місце вставки. Наприклад, "{} має {} яблук".format('Юля', 5) або "{name} має {count} яблук".format(name='Юля', count=5). Цей підхід гнучкіший і допускає розширені форматні специфікатори. Його синтаксис детально описано в документації (PEP 3101).
+* Форматовані літерали (f-рядки): Уведено з Python 3.6. Це рядки, перед якими ставиться префікс f або F. Всередині таких рядків у фігурних дужках {} можна вбудовувати довільні вирази Python – вони обчислюються під час виконання і вставляються в результат як рядок. </p>
+<p>Наприклад:</p>
+<pre><code class="language-python">Copy
+Edit
+name = 'Світ'
+year = 2025
+f'Привіт, {name}! Зараз {year} рік.'  
+</code></pre>
+<blockquote>
+<p>Дає рядок "Привіт, Світ! Зараз 2025 рік.". В середині {} можна застосовувати методи, форматні специфікатори, а також оператор = для дебагу (наприклад, f'{x=}' покаже 'x=значення'). F-рядки часто зручніші за % або format() через пряме вбудовування виразів.</p>
+</blockquote>
+<h2 id="collections">📌 Колекції (Collections)</h2>
+<h3 id="list">list (список)</h3>
+<p>Опис: list – змінна (mutable) послідовність довільних об’єктів. Зазвичай використовується для колекцій однорідних або гетерогенних даних.
+Змінюваність: змінний. Елементи списку можна змінювати, додавати і видаляти без створення нового списку (ідентифікатор списку залишається тим самим при мутації).
+Стандартні функції: len(lst), type(lst), isinstance(lst, list), sorted(lst) (повертає новий відсортований список), list(iterable) (конвертує інший ітерабельний об’єкт у список).
+Методи: До list відносяться методи для мутації та обробки:
+* Додавання/вставка: lst.append(x), lst.extend(iterable), lst.insert(index, x).
+* Видалення: lst.remove(x) (видаляє перше входження), lst.pop([index]) (видаляє та повертає елемент; за замовчуванням останній), lst.clear() (видаляє всі елементи).
+* Сортування/реверс: lst.sort(key=..., reverse=False) (сортує на місці), lst.reverse() (реверсує порядок на місці).
+* Копіювання: lst.copy() (поверхнева копія).
+* Суміжні операції: конкатенація (+), множення (*) створюють нові списки; зрізи lst[i:j] дають підсписок.</p>
+<blockquote>
+<p>Слід пам’ятати, що методи мутації (append, sort тощо) повертають None, а не сам список.</p>
+</blockquote>
+<h3 id="tuple">tuple (кортеж)</h3>
+<p>Опис: tuple – незмінна (immutable) послідовність об’єктів. Часто використовується для структурованих записів (гетерогенних даних) або де потрібно зафіксувати послідовність (напр. ключ у set або dict).
+Змінюваність: незмінний. Після створення елементи кортежу не можна змінити.
+Стандартні функції: len(t), type(t), isinstance(t, tuple), sorted(t) (поверне новий список з елементами кортежу, якщо елементи можна порівняти), tuple(iterable) (конвертує в кортеж).
+Методи: Оскільки кортежі незмінні, вони не мають методів, що мутують. Є базові методи:
+* t.count(x) – кількість входжень x у кортежі.
+* t.index(x) – індекс першого входження x.
+* Інші методи та операції такі ж, як для послідовностей: індексація (t[i]), зрізи, конкатенація та множення створюють нові кортежі.</p>
+<h3 id="set-frozenset">set та frozenset (множини)</h3>
+<p>Опис: set – невпорядкований набір унікальних (distinct) хешованих об’єктів. Зазвичай використовується для перевірки належності, усунення дублікатів або математичних операцій над множинами (перетин, об’єднання тощо).
+set – змінний, frozenset – незмінний: Вміст звичайного set може змінюватися (методи add(), remove() тощо), тому set не має власного хеша. На відміну від нього, frozenset – незмінний (його можна використовувати як ключ словника чи елемент множини).
+Стандартні функції: len(s), type(s), isinstance(s, set) (для змінних множин) чи isinstance(s, frozenset) (для незмінних). Перетворювати можна через set(iterable) або frozenset(iterable). sorted(s) поверне відсортований список елементів.
+Методи (для set):
+* Модифікація: s.add(x) (додати), s.remove(x) (видалити або помилка, якщо немає), s.discard(x) (видалити без помилки), s.pop() (витягнути і повернути довільний елемент), s.clear().
+* Операції з іншими множинами (повертають новий set): s.union(t) або s | t, s.intersection(t) або s &amp; t, s.difference(t) або s - t, s.symmetric_difference(t) або s ^ t.
+* Операції оновлення на місці: s.update(iterables) (додає), s.intersection_update(iterables), s.difference_update(iterables), s.symmetric_difference_update(other).
+* Інші: s.isdisjoint(t), s.issubset(t) (&lt;=), s.issuperset(t) (&gt;=).
+Для frozenset доступні тільки операції, які не змінюють множину (без _update): union, intersection, тощо.</p>
+<h3 id="dict">dict (словник)</h3>
+<p>Опис: dict – відображення (mapping) з ключів у значення. Ключі можуть бути будь-якими хешованими (наприклад, числовими, рядками або frozenset), а значення – довільними об’єктами. Словник зберігає асоціації (ключ: значення) і гарантує впорядкування за вставкою (з Python 3.7).
+Змінюваність: змінний. У словнику можна додавати, змінювати і видаляти пари ключ–значення без створення нового об’єкта словника.
+Стандартні функції: len(d), type(d), isinstance(d, dict). Перетворити можна через dict(iterable) або dict(mapping). Наприклад, dict([('a',1),('b',2)]). list(d) повертає список ключів. sorted(d) повертає відсортований список ключів.
+Методи: Основні методи словника:
+* Отримання/встановлення: d[key] (звернутися за ключем; викликає KeyError, якщо ключу нема, або d.get(key, default) поверне default замість помилки). d[key] = value – додати або оновити значення. del d[key] – видалити пару з ключем (або помилка, якщо ключ не існує).
+* Перегляд ключів і значень: d.keys(), d.values(), d.items() – повертають «вид» (view) на відповідні колекції (не списки, але їх можна обгорнути в list()).
+* Інші: d.update(other) – оновити словник парами з іншого словника або ітерабельного об’єкта, d.pop(key[, default]) – видалити ключ і повернути значення (або default), d.popitem() – видалити і повернути довільну пару (останню за вставкою), d.clear() – очистити словник, d.copy() – поверхневий копію.</p>
+<h2 id="_7">📌 Приведення типів</h2>
+<p>Для перетворення між типами Python надає стандартні функції:
+* int(x) – конвертує x у ціле число (якщо можливо). Наприклад, int("123") → 123, int(3.9) → 3.
+* float(x) – конвертує x у число з плаваючою крапкою. Приклад: float("3.14") → 3.14, float(2) → 2.0.
+* str(x) – перетворює об’єкт x на рядок (викликає його метод <code>__str__</code>). Наприклад, str(123) → "123".
+* bool(x) – конвертує x у булеве значення (False для «порожніх» чи нульових даних, інакше True). Наприклад, bool("") → False, bool([1,2]) → True.
+* list(x) – конвертує ітерабельний x в список. Наприклад, list("abc") → ['a','b','c'], list((1,2)) → [1,2]; без аргументів повертає порожній список.
+* tuple(x) – конвертує ітерабельний x в кортеж. Наприклад, tuple("ab") → ('a','b'), tuple([1,2]) → (1,2); без аргументів – пустий кортеж.
+* dict(...) – створює словник. Можна викликати dict() без аргументів (пустий словник), або dict(mapping) з іншим словником, або dict(iterable_of_pairs) – послідовністю з двохелементних ітерабельних (наприклад, dict([('a',1),('b',2)])).
+* set(x) – перетворює x в множину (унікальні елементи з ітерабельного x). Наприклад, set("abracadabra") → {'a','b','r','c','d'}. Без аргументів дає пусту множину set(). Аналогічно, frozenset(x) створює незмінну множину.
+Кожна з цих функцій намагається інтерпретувати вхідні дані відповідно до нового типу і може викликати помилку (ValueError, TypeError тощо), якщо перетворення неможливе.</p>
+<h2 id="truthy-falsy-python">📌 Приведення типів у логічних виразах (Truthy / Falsy) в Python</h2>
+<p>Логічний вираз — це вираз, який повертає булеве значення: <code>True</code> або <code>False</code>.</p>
+<pre><code class="language-python">if x:
+    print(&quot;x is True&quot;)
+</code></pre>
+<blockquote>
+<p>У цьому виразі x автоматично перетворюється в булеве значення за певними правилами.</p>
+</blockquote>
+<p>🔹 Загальне правило
+У логічному контексті (наприклад, if, while, and, or, not) Python виконує неявне приведення типів до bool.</p>
+<p>Для цього викликається вбудована функція bool(obj).
+🔸 Що вважається False в логічному виразі?
+Усі ці об’єкти розглядаються як False:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Тип</th>
+<th style="text-align: left;">Значення, що вважаються False</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">NoneType</td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr>
+<td style="text-align: left;">bool</td>
+<td style="text-align: left;">False</td>
+</tr>
+<tr>
+<td style="text-align: left;">int, float</td>
+<td style="text-align: left;">0, 0.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">str</td>
+<td style="text-align: left;">'' (порожній рядок)</td>
+</tr>
+<tr>
+<td style="text-align: left;">list, tuple, set</td>
+<td style="text-align: left;">[], (), set()</td>
+</tr>
+<tr>
+<td style="text-align: left;">dict</td>
+<td style="text-align: left;">{}</td>
+</tr>
+<tr>
+<td style="text-align: left;">range</td>
+<td style="text-align: left;">range(0)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Класи / об'єкти</td>
+<td style="text-align: left;">Якщо <code>__bool__</code>() або <code>__len__</code>() повертає 0 або False</td>
+</tr>
+</tbody>
+</table>
+<p>🔹 Усе інше вважається True</p>
+<pre><code class="language-python">bool(3.14)        # True
+bool(&quot;Hello&quot;)     # True
+bool([0])         # True (непорожній список)
+bool(&quot; &quot;)         # True (рядок з пробілом)
+bool({'a': 1})    # True (непорожній словник)
+</code></pre>
+<p>🔸 Приклади використання</p>
+<pre><code class="language-python">x = []
+if x:
+    print(&quot;True&quot;)
+else:
+    print(&quot;False&quot;)  # → False, бо список порожній
+</code></pre>
+<pre><code class="language-python">x = [0]
+if x:
+    print(&quot;True&quot;)  # → True, бо список не порожній
+</code></pre>
+<pre><code class="language-python">x = &quot;&quot;
+print(bool(x))      # False
+
+x = &quot;False&quot;
+print(bool(x))      # True (непорожній рядок)
+</code></pre>
+<h2 id="_8">📌 Перевірка типів</h2>
+<p>для перевірки типу об'єкта можна використати:</p>
+<ol>
+<li>type(obj) — вбудована функція для отримання точного типу об'єкта</li>
+</ol>
+<pre><code class="language-python">x = 5
+print(type(x))  # &lt;class 'int'&gt;
+</code></pre>
+<blockquote>
+<p>🔸 Але type() не враховує спадкування. Тобто:
+2. isinstance(obj, Type) — перевірка типу з урахуванням спадкування</p>
+</blockquote>
+<pre><code class="language-python">x = 5
+print(isinstance(x, int))  # ✅ True
+
+class A: pass
+class B(A): pass
+print(isinstance(B(), A))  # ✅ True
+</code></pre>
+<blockquote>
+<p>🔹 Можна передати кортеж типів:</p>
+</blockquote>
+<pre><code class="language-python">print(isinstance(&quot;hello&quot;, (int, str, float)))  # True
+</code></pre>
+<blockquote>
+<p>🔸 Найкраща практика — завжди використовуй isinstance() для перевірки типів.</p>
+</blockquote>
+<ol>
+<li>Перевірка через <code>__class__</code></li>
+</ol>
+<pre><code class="language-python">x = 5
+print(x.__class__ is int)  # True
+</code></pre>
+<blockquote>
+<p>⚠️ Це працює як type(), не враховує спадкування, і зазвичай не рекомендовано.</p>
+</blockquote>
+<ol>
+<li>issubclass(SubType, SuperType) — чи є клас підкласом іншого</li>
+</ol>
+<pre><code class="language-python">class A: pass
+class B(A): pass
+
+print(issubclass(B, A))  # True
+</code></pre>
+<blockquote>
+<p>🧠 Використовується для перевірки ієрархії класів, а не для перевірки об’єктів.</p>
+</blockquote>
+<hr />
+<h2 id="type-annotations">📌 Анотації типів (Type Annotations)</h2>
+<blockquote>
+<p>Анотації типів допомагають документувати код, покращують читаність і використовуються для статичного аналізу інструментами (наприклад, mypy, Pyright).</p>
+</blockquote>
+<p><strong>Переваги використання анотацій типів</strong></p>
+<ul>
+<li>можливість запобігання певним помилкам</li>
+<li>документування коду</li>
+<li>вдосконалення продуктивності інструментів розробки, лінтерів</li>
+<li>допомагають побудувати і підтримувати чисту архітектуру додатку</li>
+</ul>
+<p>Для анотації типів можна використати:</p>
+<ul>
+<li>вбудовані прийоми (вказання типу змінної, аргумента функції, типу значення, яке має повертати функція)</li>
+<li>використання вбудованого модуля typing</li>
+</ul>
+<p><strong>Анотації для змінних</strong></p>
+<pre><code class="language-python">age: int = 30
+name: str = &quot;Alice&quot;
+scores: list[int] = [90, 85, 100]
+options: dict[str, bool] = {&quot;debug&quot;: True}
+</code></pre>
+<p><strong>Анотації для функцій</strong></p>
+<pre><code class="language-python">def greet(name: str) -&gt; str:
+    return f&quot;Hello, {name}&quot;
+</code></pre>
+<ul>
+<li>
+<p><code>name: str</code> — тип аргументу</p>
+</li>
+<li>
+<p><code>-&gt; str</code> — тип повернення</p>
+</li>
+</ul>
+<p><strong>Анотації класів</strong></p>
+<pre><code class="language-python">class User:
+    ...
+
+def process(user: User) -&gt; None:
+    ...
+</code></pre>
+<pre><code class="language-python">class Test:
+    def __init__(self, x):
+        self.x = x
+
+    @classmethod
+    def create(cls, x: int) -&gt; 'Test':
+        return cls(x)
+</code></pre>
+<p><strong>Використання модуля typing</strong></p>
+<p><strong>Основні типи</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Тип з модуля typing</th>
+<th style="text-align: left;">Призначення</th>
+<th style="text-align: left;">Альтернатива вбудована в мову з версії 3.9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Any</td>
+<td style="text-align: left;">Будь-який тип</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">Union</td>
+<td style="text-align: left;">Значення кількох типів : Union[int, str, float]</td>
+<td style="text-align: left;">int | str | float</td>
+</tr>
+<tr>
+<td style="text-align: left;">Optional[int]</td>
+<td style="text-align: left;">int або None</td>
+<td style="text-align: left;">int | None</td>
+</tr>
+<tr>
+<td style="text-align: left;">List[X]</td>
+<td style="text-align: left;">Список з елементами типу X</td>
+<td style="text-align: left;">list[X]</td>
+</tr>
+<tr>
+<td style="text-align: left;">Dict[K, V]</td>
+<td style="text-align: left;">Словник з ключами типу K і значеннями типу V</td>
+<td style="text-align: left;">dict[K, V]</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tuple[X, Y]</td>
+<td style="text-align: left;">Кортеж з типами X і Y</td>
+<td style="text-align: left;">tuple[X, Y]</td>
+</tr>
+<tr>
+<td style="text-align: left;">Callable</td>
+<td style="text-align: left;">Функції з певною сигнатурою</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">TypeVar</td>
+<td style="text-align: left;">Універсальний шаблон типу</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">Literal</td>
+<td style="text-align: left;">Конкретні значення (наприклад, Literal[0, 1])</td>
+<td style="text-align: left;">-</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Футер" >
+        
+          
+          <a href="../python_links/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Корисні посилання">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Корисні посилання
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../python_operators/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Оператори">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Оператори
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["search.highlight", "navigation.footer", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>

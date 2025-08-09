@@ -1,0 +1,59 @@
+site_name: My Documentation
+site_url: https://BatyrbekCherushev.github.io/STUDY_NOTES/
+
+
+nav:
+- Головна: index.md
+- Написання документації:
+  - Markdown Basic: Markdown_Cheatsheet.md
+  - MkDocs: mkdocs.md
+  - Sphinx: sphinx.md
+- PYTHON: 
+  - Корисні посилання: PYTHON/python_links.md
+  - Типи даних: PYTHON/python_types.md
+  - Оператори: PYTHON/python_operators.md
+  - Exceptions: PYTHON/python_exceptions.md
+  - Простір імен, область видимості: PYTHON/python_namespace_scope.md
+  - Класи: PYTHON/python_classes.md
+  - Ітератори. генератори: PYTHON/python_iterator_generators.md
+  - PYHON -> requests: PYTHON/python_requests.md
+
+- GIT:
+  - Корисні посилання: GIT/git_links.md
+  - Основні поняття GIT: GIT/git_definitions.md
+  - Термінологія GIT: GIT/terminology.md
+  - Основні команди GIT: GIT/git_basic_commands.md
+- LINUX:
+  - Корисні посилання: LINUX/linux_links.md
+  - ЗАГАЛЬНЕ: LINUX/linux.md
+- Корисні посилання:
+  - ЗАГАЛЬНЕ: LINKS/links_basic.md
+  - ENGLISH: LINKS/links_english.md
+  - ІНФОРМАТИКА: LINKS/links_cs.md
+  - ІНСТРУМЕНТИ : LINKS/links_tools.md
+  - ВАЖЛИВІ БАЗОВІ ТЕМИ: LINKS/links_important_subjects.md
+  - БАЗИ ДАНИХ: LINKS/links_databases.md
+  - РОБОЧИЙ ПРОЦЕС: LINKS/links_workflow.md
+
+
+theme:
+  name: material
+  language: uk
+  features:
+    - search.highlight
+    - navigation.footer
+    - navigation.instant # ускорение загрузки (SPA)
+    - navigation.tracking # динамический URL страницы 
+    - navigation.tabs # перенос названий документов в горизонтальное меню
+    - navigation.tabs.sticky # горизонтальное меню не скрывается при прокрутке
+    - navigation.indexes # главные страницы разделов не отображаются в меню
+    - navigation.top # вкл. кнопку возврата наверх
+  palette: 
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Темний
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Світлий
