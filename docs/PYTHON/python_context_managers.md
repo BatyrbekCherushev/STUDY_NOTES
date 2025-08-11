@@ -112,11 +112,12 @@ with MyCM() as data:
 🧾 Вивід
 ```mkdocs
 Вхід у контекст
-Працюю...
+Working...
+Data =  Дані
 Вихід із контексту
-Тип помилки:   <class 'ZeroDivisionError'>
-Об'єкт помилки: division by zero
-Traceback:     <traceback object at 0x0000021F2F5A6C40>
+Тип помилки:   None
+Об'єкт помилки: None
+Traceback:     None
 ```
 **Декоратор `@contextmanager` із `contextlib`**
 ```python
