@@ -15,6 +15,7 @@ nav:
   - Простір імен, область видимості: PYTHON/python_namespace_scope.md
   - Класи: PYTHON/python_classes.md
   - Ітератори. генератори: PYTHON/python_iterator_generators.md
+  - Контекстні менеджери: PYTHON/python_context_managers.md
   - PYHON -> requests: PYTHON/python_requests.md
 
 - GIT:
