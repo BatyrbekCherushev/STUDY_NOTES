@@ -29,10 +29,10 @@
 * `__enter__(self)` — викликається при вході в контекст (після with);
 
 * `__exit__(self, exc_type, exc_value, traceback)` — викликається при виході (навіть у разі помилки).
-    * `exc_type, exc_value, traceback` - параметри, через які передаються дані про виключення, в разі його виключення
+    * `exc_type, exc_value, traceback` - параметри, через які передаються дані про виключення, в разі його виникнення
     * якщо виключення не сталось, передаються None
 
-** Порядок роботи з `with` виразом**
+**Порядок роботи з `with` виразом**
 ``` python
 with A() as a, B() as b:
     suite
@@ -97,19 +97,6 @@ class MyCM:
         print("Вхід у контекст")
         return "Дані"
     
-    def __exit__(self, exc_type, exc_value, tb):
-        print("Вихід із контексту")
-        print("Тип помилки:  ", exc_type)
-        print("Об'єкт помилки:", exc_value)
-        print("Traceback:    ", tb)
-        # Якщо повернути True — помилка буде приглушена
-        return True
-
-class MyCM:
-    def __enter__(self):
-        print("Вхід у контекст")
-        return "Дані"
-
     def __exit__(self, exc_type, exc_value, tb):
         print("Вихід із контексту")
         print("Тип помилки:  ", exc_type)
