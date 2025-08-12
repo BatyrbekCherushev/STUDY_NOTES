@@ -9,6 +9,7 @@ nav:
 
 - PYTHON: 
   - Корисні посилання: PYTHON/python_links.md
+  - Змінні: PYTHON/python_variables.md
   - Типи даних: PYTHON/python_types.md
   - Оператори: PYTHON/python_operators.md
   - Exceptions: PYTHON/python_exceptions.md
