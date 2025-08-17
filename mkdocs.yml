@@ -7,7 +7,7 @@ repo_url: https://github.com/BatyrbekCherushev/STUDY_NOTES
 nav:
 - Головна: index.md
 - MKDOCS: 
-  - Autodeploy to GitHub pages: MKDOCS\mkdocs_autodeploy_setup.md
+  - Autodeploy to GitHub pages: MKDOCS/mkdocs_autodeploy_setup.md
   - MkDocs commnds: MKDOCS/mkdocs_commands.md
 - PYTHON: 
   - Корисні посилання: PYTHON/python_links.md
