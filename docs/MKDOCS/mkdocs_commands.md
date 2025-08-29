@@ -1,7 +1,7 @@
 
-python -m mkdocs new project_documentation
-python -m mkdocs serve
-
-> Якщо у вас налаштований автодеплой - ці команди спрацьовую автоматично
-python -m mkdocs bulid
-python -m mkdocs gh-deploy
+* `python -m mkdocs new project_documentation` -  створити новий прект мкдокс під назвою `project_documentation`, задає базову структуру проекту
+* `python -m mkdocs serve` - запускає локальний сервер для перегляду вмісту сайту за адресою `http://127.0.0.1:8000`
+* `python -m mkdocs bulid` - будує сайт на основі ваших файлів `docs\*.md` та на основі налаштувань проекту з файлу `mcdocs.yml`. готовий сайт генерується в папку `site\`
+    * Якщо у вас налаштований автодеплой - ця команда спрацьовує автоматично
+* `python -m mkdocs gh-deploy` - 
+    * Якщо у вас налаштований автодеплой - ця команда спрацьовує автоматично

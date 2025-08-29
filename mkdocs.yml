@@ -9,6 +9,12 @@ nav:
 - MKDOCS: 
   - Autodeploy to GitHub pages: MKDOCS/mkdocs_autodeploy_setup.md
   - MkDocs commnds: MKDOCS/mkdocs_commands.md
+
+- КОМП'ЮТЕРНІ НАУКИ:
+  - Структура: CS/cs_structure.md
+  - Алгоритми: CS/cs_algorithms.md
+  - Структури даних: CS/cs_data_structures.md
+
 - PYTHON: 
   - Корисні посилання: PYTHON/python_links.md
   - Змінні: PYTHON/python_variables.md
@@ -26,6 +32,7 @@ nav:
   - Основні поняття GIT: GIT/git_definitions.md
   - Термінологія GIT: GIT/terminology.md
   - Основні команди GIT: GIT/git_basic_commands.md
+
 - Корисні посилання:
   - ЗАГАЛЬНЕ: LINKS/links_basic.md
   - ENGLISH: LINKS/links_english.md
