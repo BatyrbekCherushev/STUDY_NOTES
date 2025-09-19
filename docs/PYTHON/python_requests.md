@@ -1,27 +1,37 @@
+# <h1 style = 'text-align:center'><b>📌**Бібліотека requests**</b></h2>
+
 ```python
 import requests
 import json
-#from requests.auth import HTTPBasicAuth
+```
 
-# ===== 1. ОСНОВНІ GET ЗАПИТИ =====
-print("=== 1. Основні GET запити ===")
+## <h2 style = 'text-align:center'><b>📌**LINKS**</b></h2>
 
-# Простий GET запит
+
+---
+
+## <h2 style = 'text-align:center'><b>📌 **ОСНОВНІ GET ЗАПИТИ**</b></h2>
+### 📋 Простий GET запит
+```python
 response = requests.get('https://httpbin.org/get')
 print(f"Статус: {response.status_code}")
 print(f"URL: {response.url}")
 print(f"Заголовки відповіді: {dict(response.headers)}")
 print(f"JSON відповідь: {response.json()}")
 print()
+```
 
-# GET з параметрами
+### 📋 GET з параметрами
+```python
 params = {'name': 'John', 'age': 30, 'city': 'Kyiv'}
 response = requests.get('https://httpbin.org/get', params=params)
 print(f"URL з параметрами: {response.url}")
 print(f"Параметри в відповіді: {response.json()['args']}")
 print()
+```
 
-# GET з заголовками
+### 📋 GET з заголовками
+```python
 headers = {
     'User-Agent': 'MyApp/1.0',
     'Accept': 'application/json',
@@ -30,97 +40,123 @@ headers = {
 response = requests.get('https://httpbin.org/get', headers=headers)
 print(f"Заголовки запиту: {response.json()['headers']}")
 print()
+```
+## <h2 style = 'text-align:center'><b>📌 **POST ЗАПИТИ**</b></h2>
 
-# ===== 2. POST ЗАПИТИ =====
-print("=== 2. POST запити ===")
 
-# POST з JSON даними
+### 📋 POST з JSON даними
+```python
 json_data = {'username': 'john_doe', 'email': 'john@example.com', 'age': 25}
 response = requests.post('https://httpbin.org/post', json=json_data)
 print(f"POST JSON статус: {response.status_code}")
 print(f"Надіслані JSON дані: {response.json()['json']}")
 print()
+```
 
-# POST з form данними
+### 📋 POST з form данними
+```python
 form_data = {'name': 'Ivan', 'profession': 'developer', 'country': 'Ukraine'}
 response = requests.post('https://httpbin.org/post', data=form_data)
 print(f"POST form статус: {response.status_code}")
 print(f"Надіслані form дані: {response.json()['form']}")
 print()
+```
 
-# POST з файлом (симуляція)
+### 📋 POST з файлом (симуляція)
+```python
 files = {'file': ('test.txt', 'Це тестовий файл', 'text/plain')}
 response = requests.post('https://httpbin.org/post', files=files)
 print(f"POST файл статус: {response.status_code}")
 print(f"Інформація про файл: {response.json()['files']}")
 print()
+```
+## <h2 style = 'text-align:center'><b>📌 **ІНШІ HTTP МЕТОДИ**</b></h2>
 
-# ===== 3. ІНШІ HTTP МЕТОДИ =====
-print("=== 3. Інші HTTP методи ===")
 
-# PUT запит
+### 📋 PUT запит
+```python
 put_data = {'id': 123, 'name': 'Updated Name', 'status': 'active'}
 response = requests.put('https://httpbin.org/put', json=put_data)
 print(f"PUT статус: {response.status_code}")
 print(f"PUT дані: {response.json()['json']}")
 print()
+```
 
-# PATCH запит
+### 📋 PATCH запит
+```python
 patch_data = {'status': 'inactive'}
 response = requests.patch('https://httpbin.org/patch', json=patch_data)
 print(f"PATCH статус: {response.status_code}")
 print(f"PATCH дані: {response.json()['json']}")
 print()
+```
 
-# DELETE запит
+### 📋 DELETE запит
+```python
 response = requests.delete('https://httpbin.org/delete')
 print(f"DELETE статус: {response.status_code}")
 print(f"DELETE URL: {response.json()['url']}")
 print()
+```
 
-# HEAD запит (тільки заголовки)
+### 📋 HEAD запит (тільки заголовки)
+```python
 response = requests.head('https://httpbin.org/get')
 print(f"HEAD статус: {response.status_code}")
 print(f"HEAD заголовки: {dict(response.headers)}")
 print(f"HEAD контент (порожній): '{response.text}'")
 print()
+```
+---
 
-# ===== 4. РОБОТА З АВТЕНТИФІКАЦІЄЮ =====
-print("=== 4. Автентифікація ===")
+## <h2 style = 'text-align:center'><b>📌 **РОБОТА З АВТЕНТИФІКАЦІЄЮ**</b></h2>
 
-# Basic Auth
-# response = requests.get('https://httpbin.org/basic-auth/user/pass',
-#                         auth=HTTPBasicAuth('user', 'pass'))
-# print(f"Basic Auth статус: {response.status_code}")
-# print(f"Basic Auth відповідь: {response.json()}")
-# print()
 
-# Bearer token
+### 📋 Basic Auth
+```python
+response = requests.get('https://httpbin.org/basic-auth/user/pass',
+                        auth=HTTPBasicAuth('user', 'pass'))
+print(f"Basic Auth статус: {response.status_code}")
+print(f"Basic Auth відповідь: {response.json()}")
+print()
+```
+
+### 📋 Bearer token
+```python
 headers = {'Authorization': 'Bearer fake-jwt-token-123'}
 response = requests.get('https://httpbin.org/bearer', headers=headers)
 print(f"Bearer token статус: {response.status_code}")
 if response.status_code == 200:
     print(f"Bearer відповідь: {response.json()}")
 print()
+```
 
-# ===== 5. СЕСІЇ =====
-print("=== 5. Робота з сесіями ===")
+---
 
+## <h2 style = 'text-align:center'><b>📌 **СЕСІЇ**</b></h2>
+
+```python
 session = requests.Session()
 session.headers.update({'User-Agent': 'MyApp Session/1.0'})
+```
 
-# Встановлення cookie через сесію
+### 📋 Встановлення cookie через сесію
+```python
 response = session.get('https://httpbin.org/cookies/set/session_id/abc123')
 print(f"Встановлення cookie статус: {response.status_code}")
+```
 
-# Перевірка cookie в сесії
+### 📋 Перевірка cookie в сесії
+```python
 response = session.get('https://httpbin.org/cookies')
 print(f"Cookie в сесії: {response.json()}")
 print()
+```
 
-# ===== 6. ОБРОБКА ПОМИЛОК =====
-print("=== 6. Обробка помилок ===")
+---
 
+## <h2 style = 'text-align:center'><b>📌 **ОБРОБКА ПОМИЛОК**</b></h2>
+```python
 try:
     # Запит до неіснуючого ендпоінту
     response = requests.get('https://httpbin.org/status/404', timeout=5)
@@ -131,33 +167,43 @@ except requests.exceptions.HTTPError as e:
 except requests.exceptions.RequestException as e:
     print(f"Загальна помилка запиту: {e}")
 print()
-
+```
+```python
 try:
     # Таймаут
     response = requests.get('https://httpbin.org/delay/10', timeout=2)
 except requests.exceptions.Timeout:
     print("Перевищено час очікування запиту")
 print()
+```
 
-# ===== 7. ПАРАМЕТРИ ЗАПИТУ =====
-print("=== 7. Різні параметри запиту ===")
+---
 
-# Заборона редиректів
+## <h2 style = 'text-align:center'><b>📌 **ПАРАМЕТРИ ЗАПИТУ**</b></h2>
+
+
+### 📋 Заборона редиректів
+```python
 response = requests.get('https://httpbin.org/redirect/1', allow_redirects=False)
 print(f"Без редиректу статус: {response.status_code}")
 print(f"Location заголовок: {response.headers.get('Location')}")
 print()
+```
 
-# З редиректами (за замовчуванням)
+### 📋 З редиректами (за замовчуванням)
+```python
 response = requests.get('https://httpbin.org/redirect/1')
 print(f"З редиректом статус: {response.status_code}")
 print(f"Історія редиректів: {[r.status_code for r in response.history]}")
 print()
+```
 
-# ===== 8. РОБОТА З JSON =====
-print("=== 8. Робота з JSON ===")
+---
 
-# Отримання JSON
+## <h2 style = 'text-align:center'><b>📌 **РОБОТА З JSON**</b></h2>
+
+### 📋 Отримання JSON
+```python
 response = requests.get('https://jsonplaceholder.typicode.com/posts/1')
 if response.status_code == 200:
     post = response.json()
@@ -165,8 +211,10 @@ if response.status_code == 200:
     print(f"Заголовок: {post['title']}")
     print(f"Автор: {post['userId']}")
 print()
+```
 
-# Надсилання JSON
+### 📋 Надсилання JSON
+```python
 new_post = {
     'title': 'Мій новий пост',
     'body': 'Це тіло мого нового поста',
@@ -177,23 +225,32 @@ if response.status_code == 201:
     created_post = response.json()
     print(f"Створено пост з ID: {created_post['id']}")
 print()
+```
 
+---
+
+## <h2 style = 'text-align:center'><b>📌 **ПЕРЕВІРКА СТАТУСУ**</b></h2>
 # ===== 9. ПЕРЕВІРКА СТАТУСУ =====
-print("=== 9. Перевірка статусу ===")
+```python
 
 response = requests.get('https://httpbin.org/status/200')
 print(f"Статус 200 - OK: {response.ok}")
+```
 
+```python
 response = requests.get('https://httpbin.org/status/404')
 print(f"Статус 404 - OK: {response.ok}")
 print(f"Статус код: {response.status_code}")
 print(f"Причина: {response.reason}")
 print()
+```
 
-# ===== 10. ПОТОКОВЕ ЧИТАННЯ =====
-print("=== 10. Потокове читання ===")
+---
 
-# Потокове читання великого контенту
+## <h2 style = 'text-align:center'><b>📌 **ПОТОКОВЕ ЧИТАННЯ**</b></h2>
+
+### 📋 Потокове читання великого контенту
+```python
 response = requests.get('https://httpbin.org/stream/3', stream=True)
 print("Потокове читання:")
 for line in response.iter_lines():
@@ -201,18 +258,24 @@ for line in response.iter_lines():
         data = json.loads(line.decode('utf-8'))
         print(f"  Рядок {data['id']}: {data['url']}")
 print()
+```
 
-# ===== 11. COOKIES =====
-print("=== 11. Робота з Cookies ===")
+---
 
-# Надсилання cookies
+## <h2 style = 'text-align:center'><b>📌 **COOKIES**</b></h2>
+
+### 📋 Надсилання cookies
+```python
 cookies = {'user_preference': 'dark_theme', 'language': 'uk'}
 response = requests.get('https://httpbin.org/cookies', cookies=cookies)
 print(f"Надіслані cookies: {response.json()['cookies']}")
 print()
+```
 
-# ===== 12. ЗАГОЛОВКИ ВІДПОВІДІ =====
-print("=== 12. Аналіз заголовків відповіді ===")
+---
+
+## <h2 style = 'text-align:center'><b>📌 **ЗАГОЛОВКИ ВІДПОВІДІ**</b></h2>
+```python
 
 response = requests.get('https://httpbin.org/response-headers?Content-Type=application/json&Server=MyServer')
 print("Важливі заголовки відповіді:")
@@ -221,8 +284,11 @@ print(f"  Server: {response.headers.get('Server')}")
 print(f"  Date: {response.headers.get('Date')}")
 print(f"  Content-Length: {response.headers.get('Content-Length')}")
 print()
+```
+---
 
-# ===== 13. РЕАЛЬНИЙ API ПРИКЛАД =====
+## <h2 style = 'text-align:center'><b>📌 **РЕАЛЬНИЙ API ПРИКЛАД**</b></h2>
+```python
 print("=== 13. Реальний API приклад (GitHub) ===")
 
 try:

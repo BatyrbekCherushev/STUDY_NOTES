@@ -11,9 +11,9 @@ nav:
   - MkDocs commnds: MKDOCS/mkdocs_commands.md
 
 - КОМП'ЮТЕРНІ НАУКИ:
-  - Структура: CS/cs_structure.md
-  - Алгоритми: CS/cs_algorithms.md
-  - Структури даних: CS/cs_data_structures.md
+  - Алгоритми і структури даних: CS/cs_algorithms_data_structures.md
+  - Комп'ютерні мережі: CS/cs_networks.md
+  - HTTP: CS/cs_http.md
 
 - PYTHON: 
   - Корисні посилання: PYTHON/python_links.md
@@ -25,7 +25,8 @@ nav:
   - Класи: PYTHON/python_classes.md
   - Ітератори. генератори: PYTHON/python_iterator_generators.md
   - Контекстні менеджери: PYTHON/python_context_managers.md
-  - PYHON -> requests: PYTHON/python_requests.md
+  - Мережеве програмування: PYTHON/python_network_programming.md
+  - Бібліотека requests: PYTHON/python_requests.md
 
 - GIT:
   - Корисні посилання: GIT/git_links.md
@@ -50,12 +51,16 @@ theme:
   features:
     - search.highlight
     - navigation.footer
-    - navigation.instant # ускорение загрузки (SPA)
-    - navigation.tracking # динамический URL страницы 
-    - navigation.tabs # перенос названий документов в горизонтальное меню
-    - navigation.tabs.sticky # горизонтальное меню не скрывается при прокрутке
-    - navigation.indexes # главные страницы разделов не отображаются в меню
-    - navigation.top # вкл. кнопку возврата наверх
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.top
+    - navigation.tabs          # вкладки зверху
+    - navigation.tabs.sticky   # вкладки "приклеєні"
+    - navigation.sections      # секції в сайдбарі
+    - navigation.expand        # можна розгортати підрозділи
+    - navigation.collapse      # підрозділи за замовчуванням згорнуті
+  navigation_depth: 3
   palette: 
     - scheme: default
       toggle:
@@ -65,3 +70,53 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Світлий
+
+# theme:
+#   name: material
+#   favicon: RES/img/logo.svg
+#   language: uk
+#   features:
+#     - search.highlight
+#     - navigation.footer
+#     - navigation.instant
+#     - navigation.tracking
+#     - navigation.indexes
+#     - navigation.top
+#     - navigation.sections
+#     - navigation.expand
+#     - navigation.collapse
+#   navigation_depth: 3
+#   palette: 
+#     - scheme: default
+#       toggle:
+#         icon: material/brightness-7 
+#         name: Темний
+#     - scheme: slate
+#       toggle:
+#         icon: material/brightness-4
+#         name: Світлий
+
+# theme:
+#   name: material
+#   favicon: RES/img/logo.svg
+#   language: uk
+#   features:
+#     - search.highlight
+#     - navigation.footer
+#     - navigation.instant # ускорение загрузки (SPA)
+#     - navigation.tracking # динамический URL страницы 
+#     - navigation.tabs # перенос названий документов в горизонтальное меню
+#     - navigation.tabs.sticky # горизонтальное меню не скрывается при прокрутке
+#     - navigation.indexes # главные страницы разделов не отображаются в меню
+#     - navigation.top # вкл. кнопку возврата наверх
+#     - navigation.expand          # щоб підрозділи розкривалися
+#     - navigation.collapse        # щоб підрозділи за замовчуванням були приховані
+#   palette: 
+#     - scheme: default
+#       toggle:
+#         icon: material/brightness-7 
+#         name: Темний
+#     - scheme: slate
+#       toggle:
+#         icon: material/brightness-4
+#         name: Світлий
