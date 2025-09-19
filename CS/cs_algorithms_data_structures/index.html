@@ -1,0 +1,2796 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://BatyrbekCherushev.github.io/STUDY_NOTES/CS/cs_algorithms_data_structures/">
+      
+      
+        <link rel="prev" href="../../MKDOCS/mkdocs_commands/">
+      
+      
+        <link rel="next" href="../cs_networks/">
+      
+      
+      <link rel="icon" href="../../RES/img/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Алгоритми і структури даних - Мій конспект...</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Мій конспект..." class="md-header__button md-logo" aria-label="Мій конспект..." data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Мій конспект...
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Алгоритми і структури даних
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Темний"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Темний" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Світлий"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Світлий" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/BatyrbekCherushev/STUDY_NOTES" title="Перейти до вихідного коду" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Головна
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../MKDOCS/mkdocs_autodeploy_setup/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  MKDOCS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  КОМП'ЮТЕРНІ НАУКИ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PYTHON/python_links/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  PYTHON
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../GIT/git_links/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  GIT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../LINKS/links_basic/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Корисні посилання
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Мій конспект..." class="md-nav__button md-logo" aria-label="Мій конспект..." data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Мій конспект...
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/BatyrbekCherushev/STUDY_NOTES" title="Перейти до вихідного коду" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Головна
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MKDOCS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            MKDOCS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MKDOCS/mkdocs_autodeploy_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autodeploy to GitHub pages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MKDOCS/mkdocs_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs commnds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    КОМП'ЮТЕРНІ НАУКИ
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            КОМП'ЮТЕРНІ НАУКИ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Алгоритми і структури даних
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Алгоритми і структури даних
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Посилання на тему
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Аналіз алгоритмів
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Аналіз алгоритмів">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Визначення
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Випадки
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Нотації
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#big-o-" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Big-O (О-нотація)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Пошукові алгоритми
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌Пошукові алгоритми">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Лінійний пошук
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Лінійний пошук з бар'єром
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Бінарний пошук
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Алгоритми сортування
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Алгоритми сортування">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Links
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bubble-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Алгоритм бульбашки (Bubble Sort)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selection-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Вибірка (Selection Sort)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insertion-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Вставка (Insertion Sort)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Злиття (Merge Sort)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Швидке сортуватння (Quick Sort)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heap-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Heap sort
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋partition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell_sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋shell_sort
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Стек (Stack)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌Стек (Stack)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Визначення
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Приклади
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Черга (Queue)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌Черга (Queue)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Визначення
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linked-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Зв'язаний список (linked list)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌Зв&#39;язаний список (linked list)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Приклади
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Дерева
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌Дерева">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Визначення
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Обхід дерева
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Графи
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌Графи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Визначення
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cs_networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Комп'ютерні мережі
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cs_http/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PYTHON
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            PYTHON
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PYTHON/python_links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PYTHON/python_variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Змінні
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PYTHON/python_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Типи даних
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PYTHON/python_operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Оператори
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PYTHON/python_exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PYTHON/python_namespace_scope/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Простір імен, область видимості
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PYTHON/python_classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Класи
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PYTHON/python_iterator_generators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ітератори. генератори
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PYTHON/python_context_managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Контекстні менеджери
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PYTHON/python_network_programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Мережеве програмування
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PYTHON/python_requests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Бібліотека requests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GIT
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            GIT
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/git_links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/git_definitions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Основні поняття GIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/terminology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Термінологія GIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/git_basic_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Основні команди GIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Корисні посилання
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ЗАГАЛЬНЕ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_english/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ENGLISH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_cs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ІНФОРМАТИКА
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ІНСТРУМЕНТИ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_important_subjects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ВАЖЛИВІ БАЗОВІ ТЕМИ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    БАЗИ ДАНИХ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    РОБОЧИЙ ПРОЦЕС
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Посилання на тему
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Аналіз алгоритмів
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Аналіз алгоритмів">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Визначення
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Випадки
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Нотації
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#big-o-" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Big-O (О-нотація)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Пошукові алгоритми
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌Пошукові алгоритми">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Лінійний пошук
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Лінійний пошук з бар'єром
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Бінарний пошук
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Алгоритми сортування
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Алгоритми сортування">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Links
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bubble-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Алгоритм бульбашки (Bubble Sort)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selection-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Вибірка (Selection Sort)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insertion-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Вставка (Insertion Sort)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Злиття (Merge Sort)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Швидке сортуватння (Quick Sort)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heap-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋Heap sort
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋partition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell_sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋shell_sort
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Стек (Stack)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌Стек (Stack)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Визначення
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Приклади
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Черга (Queue)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌Черга (Queue)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Визначення
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linked-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Зв'язаний список (linked list)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌Зв&#39;язаний список (linked list)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Приклади
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Дерева
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌Дерева">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Визначення
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Обхід дерева
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌Графи
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌Графи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Визначення
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1"><h1 style = 'text-align:center'><b>АЛГОРИТМИ і СТРУКТУРИ ДАНИХ </b></h1></h1>
+<h2 id="_2"><h2 style = 'text-align:center'><b>📌Посилання на тему </b></h2></h2>
+<p>http://runestone.academy/ns/books/published/pythonds/AlgorithmAnalysis/BigONotation.html
+https://stackabuse.com/big-o-notation-and-algorithm-analysis-with-python-examples/</p>
+<hr />
+<h2 id="_3"><h2 style = 'text-align:center'><b>📌 Аналіз алгоритмів</b></h2></h2>
+<h3 id="_4">📋 Визначення</h3>
+<p>Що таке аналіз алгоритмів і навіщо це потрібно
+Аналіз алгоритмів — це оцінка складності алгоритмів, незалежно від конкретної реалізації, що дозволяє порівняти, наскільки ефективно вони працюють при зростанні розміру задачі</p>
+<p><strong>Спосіб підрахунку відносного часу на виконання алгоритму</strong></p>
+<ul>
+<li>для спрощенного підрахунку можна орієнтуватися тільки на операції присвоєння</li>
+<li>для більш повного підрахунку можна враховувати всі операції (математичні, логічні, присвоєння і т.д.)</li>
+</ul>
+<h3 id="_5">📋 Випадки</h3>
+<p>Розрізняються найгірший (worst), середній (average) і найкращий (best) варіанти виконання</p>
+<p><strong>Best Case (Найкращий випадок)</strong></p>
+<ul>
+<li>Що показує: мінімальну кількість операцій, які алгоритм виконає для будь-якого допустимого вхідного набору.</li>
+<li>Коли застосовується: коли хочеш знати, наскільки швидко алгоритм може працювати у найсприятливішій ситуації.</li>
+<li>Приклад:<ul>
+<li>Пошук елемента в масиві (linear search): якщо шуканий елемент знаходиться на першій позиції, алгоритм виконає 1 порівняння → O(1).</li>
+<li>Сортування вставками: якщо масив вже відсортований, алгоритм проходить масив лише один раз → O(n).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Worst Case (Гірший випадок)</strong></p>
+<ul>
+<li>Що показує: максимальну кількість операцій, які алгоритм може виконати.</li>
+<li>Чому важливий: гарантує верхню межу часу виконання — важливо для надійності та прогнозування.</li>
+<li>Приклад:<ul>
+<li>Linear search: якщо шуканий елемент відсутній або знаходиться в кінці → n порівнянь → O(n).</li>
+<li>QuickSort: якщо обраний pivot завжди найменший/найбільший, час виконання O(n²).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Average Case (Середній випадок)</strong></p>
+<ul>
+<li>Що показує: очікувану кількість операцій, якщо всі можливі вхідні дані рівноймовірні.</li>
+<li>Коли застосовується: коли дані випадкові або розподіл відомий — дає реалістичну оцінку середнього часу виконання.</li>
+<li>Приклад:<ul>
+<li>Linear search: шуканий елемент знаходиться рівноймовірно на будь-якій позиції → в середньому n/2 порівнянь → O(n).</li>
+<li>QuickSort: при випадковому pivot → середній час O(n log n), хоча worst case — O(n²).</li>
+</ul>
+</li>
+</ul>
+<p>🛠️<strong>Приклад</strong></p>
+<p>Уяви масив із числами і пошук елемента:</p>
+<ul>
+<li>Best case<ul>
+<li>Едемент на першій позицій</li>
+<li>порявнянь 1</li>
+</ul>
+</li>
+<li>Average case<ul>
+<li>Елемент десь посередині</li>
+<li>порявняння  n/2</li>
+</ul>
+</li>
+<li>Worst case<ul>
+<li>Елемент на останній позиції або відсутній</li>
+<li>порівняння n</li>
+</ul>
+</li>
+</ul>
+<h3 id="_6">📋 Нотації</h3>
+<p>Коли говоримо про аналіз алгоритмів, ми використовуємо не лише Big-O, а й інші нотації, які уточнюють поведінку функції складності.</p>
+<p><strong>Big-O (О-нотація)</strong></p>
+<p>Big-O нотація дозволяє описати, як змінюється час виконання (або використання пам'яті) алгоритму як функція розміру вхідних даних 𝑛, фокусуючись на найсуттєвішому, «домінантному» члені складності</p>
+<ul>
+<li>Позначає верхню межу складності.</li>
+<li>Вказує, що час (або пам’ять) алгоритму не перевищить певну функцію при великому 𝑛</li>
+<li>Використовується для оцінки гіршого випадку (worst case).</li>
+<li>Приклад: якщо алгоритм O(n^2), то для дуже великих 𝑛 він працюватиме не швидше, ніж квадратично.</li>
+</ul>
+<p><strong>Big-Ω (Омега-нотація)</strong></p>
+<ul>
+<li>Позначає нижню межу складності.</li>
+<li>Вказує, що алгоритм <strong>працюватиме не швидше, ніж</strong> певна функція при великому n.</li>
+<li>Використовується для оцінки <strong>найкращого випадку (best case)</strong>.</li>
+<li>Приклад: алгоритм сортування вставками має<ul>
+<li>найгірший випадок: O(n²) (якщо дані повністю невідсортовані),</li>
+<li>найкращий випадок: Ω(n) (якщо дані вже відсортовані, треба тільки один прохід).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Big-Θ (Тета-нотація)</strong></p>
+<ul>
+<li>Позначає <strong>точну межу зростання</strong>: одночасно і верхню, і нижню.</li>
+<li>Використовується для <strong>середнього випадку (average case)</strong> або коли ми знаємо, що алгоритм росте точно з такою швидкістю.</li>
+<li>Приклад: якщо алгоритм має час виконання Θ(n log n), це означає, що він і не швидший за 𝑛 log 𝑛, і не повільніший — його ріст «прив’язаний» до цієї функції.</li>
+</ul>
+<p><strong>Приклад для сортування швидким методом (quicksort):</strong>
+* O(n²) — у найгіршому випадку (поганий вибір опорного елемента).
+* Ω(n log n) — у найкращому випадку.
+* Θ(n log n) — у середньому випадку (найчастіше).</p>
+<h3 id="big-o-">📋 Big-O (О-нотація)</h3>
+<p>Big-O нотація дозволяє описати, як змінюється час виконання (або використання пам'яті) алгоритму як функція розміру вхідних даних 𝑛, фокусуючись на найсуттєвішому, «домінантному» члені складності</p>
+<ul>
+<li>Наприклад, якщо час оцінюється як 𝑇(𝑛)=1 + 𝑛 , то з ростом 𝑛 постійний член «1» стає неістотним → O(n)</li>
+<li>нший приклад: T(n)=5n<sup>2</sup> + 27n + 1005. При великих 𝑛 домінує 𝑛<sup>2</sup>, а коефіцієнт 5 теж «неважливий» → O(n<sup>2</sup>)</li>
+</ul>
+<p><strong>Поширені класи складності</strong></p>
+<table>
+<thead>
+<tr>
+<th>Назва</th>
+<th>Нотація</th>
+<th>Тип</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>constanta</td>
+<td>O(1)</td>
+<td>постійна</td>
+</tr>
+<tr>
+<td>logaritm</td>
+<td>O(log n)</td>
+<td>логарифмічна</td>
+</tr>
+<tr>
+<td>linear</td>
+<td>O(n)</td>
+<td>лінійна</td>
+</tr>
+<tr>
+<td>log-linear</td>
+<td>O(n log n)</td>
+<td>лог-лінійна</td>
+</tr>
+<tr>
+<td>quadratic</td>
+<td>O(n<sup>2</sup>)</td>
+<td>квадратична</td>
+</tr>
+<tr>
+<td>cubic</td>
+<td>O(n<sup>3</sup>)</td>
+<td>кубічна</td>
+</tr>
+<tr>
+<td>exponential</td>
+<td>O(2<sup>n</sup>)</td>
+<td>експоненційна</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Константна та логаритмічна — найкращі, квадратична і гірші — часто неприйнятні для великих даних.</p>
+</blockquote>
+<hr />
+<h2 id="_7"><h2 style = 'text-align:center'><b>📌Пошукові алгоритми </b></h2></h2>
+<h3 id="_8">📋Лінійний пошук</h3>
+<h3 id="_9">📋Лінійний пошук з бар'єром</h3>
+<h3 id="_10">📋Бінарний пошук</h3>
+<hr />
+<h2 id="_11"><h2 style = 'text-align:center'><b>📌 Алгоритми сортування</b></h2></h2>
+<h3 id="links">📋Links</h3>
+<ul>
+<li><a href="https://medium.com/@Practicus-AI/a-tour-of-the-top-5-sorting-algorithms-with-python-code-43ea9aa02889">A tour of the top 5 sorting algorithms with Python code</a></li>
+<li><a href="https://runestone.academy/ns/books/published/pythonds/SortSearch/sorting.html">runestone.academy - Sorting</a></li>
+<li><a href="https://www.geeksforgeeks.org/dsa/sorting-algorithms/">Sorting Algorithms</a></li>
+<li><a href="https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm">Python - Sorting Algorithms</a></li>
+<li><a href="https://stackabuse.com/sorting-algorithms-in-python/">Sorting Algorithms in Python</a></li>
+</ul>
+<h3 id="bubble-sort">📋Алгоритм бульбашки (Bubble Sort)</h3>
+<p><img src="../../RES/img/CS/bubble_sort.gif"></p>
+<h3 id="selection-sort">📋Вибірка (Selection Sort)</h3>
+<h3 id="insertion-sort">📋Вставка (Insertion Sort)</h3>
+<h3 id="merge-sort">📋Злиття (Merge Sort)</h3>
+<p><img src="../../RES/img/CS/merge_sort.gif"></p>
+<p><strong>Сортування злиттям</strong> - це рекурсивний алгоритм, який постійно ділить список навпіл. Якщо список порожній або містить один елемент, то він відсортований за визначенням (базовий випадок). Якщо список містить більше одного елемента, ми розділяємо список і рекурсивно викликаємо сортування злиттям для обох половин. Після того, як дві половини відсортовано, виконується фундаментальна операція, яка називається злиттям. Злиття - це процес взяття двох менших відсортованих списків і об'єднання їх в один, відсортований, новий список.</p>
+<pre><code class="language-python">def mergeSort(alist):
+    print(&quot;Splitting &quot;,alist)
+    if len(alist)&gt;1:
+        mid = len(alist)//2
+        lefthalf = alist[:mid]
+        righthalf = alist[mid:]
+
+        mergeSort(lefthalf)
+        mergeSort(righthalf)
+
+        i=0
+        j=0
+        k=0
+        while i &lt; len(lefthalf) and j &lt; len(righthalf):
+            if lefthalf[i] &lt;= righthalf[j]:
+                alist[k]=lefthalf[i]
+                i=i+1
+            else:
+                alist[k]=righthalf[j]
+                j=j+1
+            k=k+1
+
+        while i &lt; len(lefthalf):
+            alist[k]=lefthalf[i]
+            i=i+1
+            k=k+1
+
+        while j &lt; len(righthalf):
+            alist[k]=righthalf[j]
+            j=j+1
+            k=k+1
+    print(&quot;Merging &quot;,alist)
+
+alist = [54,26,93,17,77,31,44,55,20]
+mergeSort(alist)
+print(alist)
+</code></pre>
+<h3 id="quick-sort">📋Швидке сортуватння (Quick Sort)</h3>
+<p><strong>Швидке сортування</strong> спочатку вибирає значення, яке називається опорним елементом (pivot value). Хоча існує багато різних способів вибрати опорний елемент, ми просто використаємо перший елемент у списку. Роль стрижневого значення полягає в тому, щоб допомогти розділити список. Фактична позиція, до якої належить ключове значення в кінцевому відсортованому списку, яку зазвичай називають точкою поділу, буде використовуватися для поділу списку при наступних викликах швидкого сортування.</p>
+<p><img src="../../RES/img/CS/quick_sort.gif"></p>
+<h3 id="heap-sort">📋Heap sort</h3>
+<h3 id="partition">📋partition</h3>
+<h3 id="shell_sort">📋shell_sort</h3>
+<hr />
+<h2 id="stack"><h2 style = 'text-align:center'><b>📌Стек (Stack) </b></h2></h2>
+<h3 id="_12">📋 Визначення</h3>
+<p>Стек — це абстрактна структура даних, яка працює за принципом "останній прийшов — перший пішов" (LIFO). Уяви собі стопку тарілок: ти можеш взяти лише верхню, і нову кладеш теж зверху. Саме так поводиться стек у програмуванні.</p>
+<p>🧠 <strong>Основні властивості стеку</strong> </p>
+<ul>
+<li>LIFO — останній доданий елемент буде першим, який видалиться.</li>
+<li>Операції тільки з верхівкою — не можна звертатися до середини стеку напряму.</li>
+</ul>
+<p>🔧 <strong>Основні операці</strong></p>
+<ul>
+<li>push (додавання елементу)<ul>
+<li>Додає елемент на верхівку стеку.</li>
+</ul>
+</li>
+<li>pop (видалення елементу)<ul>
+<li>Видаляє елемент з верхівки стеку і повертає його.</li>
+</ul>
+</li>
+<li>peek / top (перегляд верхнього елементу)<ul>
+<li>Повертає верхній елемент стеку, не видаляючи його.</li>
+</ul>
+</li>
+<li>is_empty (перевірка на порожнечу)<ul>
+<li>Перевіряє, чи є елементи в стеку.</li>
+</ul>
+</li>
+<li>size (розмір стеку)<ul>
+<li>Повертає кількість елементів у стеку.</li>
+</ul>
+</li>
+</ul>
+<p>🧩 <strong>Застосування стеку</strong>
+- Рекурсія — кожен виклик функції зберігається в стеку викликів.
+- Обробка виразів — калькулятори, парсери, компілятори.
+- Повернення назад — браузери, редактори (історія дій).
+- Алгоритми обходу графів — DFS (глибина першого пошуку).</p>
+<p>🧠 <strong>Реалізація стеку</strong></p>
+<ul>
+<li>Реалізація через список (list)</li>
+<li>Реалізація через зв’язаний список (linked list)</li>
+<li>Реалізація через collections.deque</li>
+</ul>
+<h3 id="_13">📋 Приклади</h3>
+<p><strong>Реалізація через список (list)</strong></p>
+<pre><code class="language-python">class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        return None
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+        return None
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def size(self):
+        return len(self.items)
+
+# Приклад використання
+stack = Stack()
+stack.push(10)
+stack.push(20)
+print(stack.pop())   # 20
+print(stack.peek())  # 10
+</code></pre>
+<hr />
+<h2 id="queue"><h2 style = 'text-align:center'><b>📌Черга (Queue)</b></h2></h2>
+<h3 id="_14">📋 Визначення</h3>
+<p>Черга — це одна з базових структур даних, яка працює за принципом "перший прийшов — перший пішов" (FIFO). Уяви собі чергу в магазині: той, хто став першим, обслуговується першим. Саме так поводиться і програмна черга.</p>
+<blockquote>
+<p>«Перший прийшов — перший вийшов».</p>
+</blockquote>
+<p><strong>Основні характеристики черги</strong></p>
+<ul>
+<li>Голова (head) — елемент, який буде видалено наступним.</li>
+<li>Хвіст (tail) — місце, куди додається новий елемент.</li>
+<li>FIFO — порядок обробки: перший доданий — перший оброблений.</li>
+</ul>
+<p><strong>Основні операції черги</strong></p>
+<table>
+<thead>
+<tr>
+<th>Операція</th>
+<th>Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>enqueue(item)</strong></td>
+<td>Додати елемент у кінець черги</td>
+</tr>
+<tr>
+<td><strong>dequeue()</strong></td>
+<td>Взяти елемент з початку черги і видалити його</td>
+</tr>
+<tr>
+<td><strong>peek() / front()</strong></td>
+<td>Подивитися перший елемент, не видаляючи</td>
+</tr>
+<tr>
+<td><strong>is_empty()</strong></td>
+<td>Перевірити, чи черга порожня</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Типи черг</strong></p>
+<ul>
+<li>одностороння<ul>
+<li>видалення елементів відбувається з кінця</li>
+<li>додавання нових елементів з початку</li>
+</ul>
+</li>
+<li>двостороння<ul>
+<li>видалення і додавання можуть відбуватися з обох боків</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="linked-list"><h2 style = 'text-align:center'><b>📌Зв'язаний список (linked list) </b></h2></h2>
+<p><strong>ЛІНКИ</strong></p>
+<ul>
+<li><a href="https://stackabuse.com/python-linked-lists/">stackabuse - Python Linked Lists</a></li>
+<li><a href="https://www.geeksforgeeks.org/dsa/linked-list-data-structure/">geeksforgeeks - Linked List Data Structure</a></li>
+<li><a href="https://www.tutorialspoint.com/python_data_structure/python_linked_lists.htm">tutorialspoint - Python - Linked Lists</a></li>
+</ul>
+<p><strong>Зв’язаний список</strong> — це структура даних, яка складається з елементів (вузлів). Кожен вузол має:</p>
+<ul>
+<li>дані (наприклад число, рядок, об’єкт);</li>
+<li>посилання (вказівник) на наступний елемент списку.</li>
+</ul>
+<p><strong>Особливості:</strong></p>
+<ul>
+<li>Данні розташовані не обов’язково у суміжних сегментах пам’яті.</li>
+<li>Кінець списку позначається значенням None (аналог NIL)</li>
+</ul>
+<p><strong>Типи зв’язаних списків:</strong></p>
+<ul>
+<li>Однозв’язаний список (Singly Linked List):<ul>
+<li>кожен вузол знає тільки наступний.</li>
+<li>вузол має лише next-посилання</li>
+</ul>
+</li>
+<li>Двозв’язаний список (Doubly Linked List):<ul>
+<li>вузол має посилання на наступний і попередній.</li>
+<li>кожен вузол містить і prev, і next;</li>
+<li>дозволяє двобічну навігацію, але потребує більше пам’яті</li>
+</ul>
+</li>
+<li>Кільцевий список (Circular Linked List):<ul>
+<li>останній вузол посилається на перший, що створює цикл;</li>
+<li>корисний для циклічних структур (наприклад, у грі чи повторюваних чергах)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Порівняння із масивами</strong></p>
+<p><strong>Переваги:</strong></p>
+<ul>
+<li>Динамічне виділення пам’яті — не потрібно резервувати місце попередньо</li>
+<li>Легкі вставка та видалення всередині структури — оновлюються лише посилання, без пересувань пам’яті</li>
+</ul>
+<p><strong>Недоліки:</strong></p>
+<ul>
+<li>Потрібна додаткова пам’ять для зберігання посилань.</li>
+<li>Повільний прямий доступ — щоб дістатися до k-го елементу, доводиться проходити весь список (O(n))</li>
+</ul>
+<h3 id="_15">📋 <strong>Приклади</strong></h3>
+<p><strong>Однозв’язний список</strong></p>
+<pre><code class="language-python">class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class SinglyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def push_front(self, value):
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head = new_node
+
+    def push_back(self, value):
+        new_node = Node(value)
+        if not self.head:
+            self.head = new_node
+            return
+        cur = self.head
+        while cur.next:
+            cur = cur.next
+        cur.next = new_node
+
+    def print_list(self):
+        cur = self.head
+        while cur:
+            print(cur.value, end=&quot; -&gt; &quot;)
+            cur = cur.next
+        print(&quot;None&quot;)
+
+# Приклад
+sll = SinglyLinkedList()
+sll.push_front(3)
+sll.push_back(5)
+sll.push_front(1)
+sll.print_list()   # 1 -&gt; 3 -&gt; 5 -&gt; None
+
+</code></pre>
+<p><strong>Двозв’язний список</strong></p>
+<pre><code class="language-python">class DNode:
+    def __init__(self, value):
+        self.value = value
+        self.prev = None
+        self.next = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def push_front(self, value):
+        new_node = DNode(value)
+        if not self.head:
+            self.head = self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+
+    def push_back(self, value):
+        new_node = DNode(value)
+        if not self.tail:
+            self.head = self.tail = new_node
+        else:
+            self.tail.next = new_node
+            new_node.prev = self.tail
+            self.tail = new_node
+
+    def print_forward(self):
+        cur = self.head
+        while cur:
+            print(cur.value, end=&quot; &lt;-&gt; &quot;)
+            cur = cur.next
+        print(&quot;None&quot;)
+
+# Приклад
+dll = DoublyLinkedList()
+dll.push_back(10)
+dll.push_back(20)
+dll.push_front(5)
+dll.print_forward()  # 5 &lt;-&gt; 10 &lt;-&gt; 20 &lt;-&gt; None
+</code></pre>
+<p><strong>Кільцевий однозв’язний список</strong></p>
+<pre><code class="language-python">class CNode:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class CircularLinkedList:
+    def __init__(self):
+        self.tail = None  # з tail.next отримаємо head
+
+    def push_back(self, value):
+        new_node = CNode(value)
+        if not self.tail:
+            self.tail = new_node
+            self.tail.next = self.tail
+        else:
+            new_node.next = self.tail.next
+            self.tail.next = new_node
+            self.tail = new_node
+
+    def print_list(self):
+        if not self.tail:
+            print(&quot;Empty&quot;)
+            return
+        cur = self.tail.next  # head
+        while True:
+            print(cur.value, end=&quot; -&gt; &quot;)
+            cur = cur.next
+            if cur == self.tail.next:
+                break
+        print(&quot;(back to head)&quot;)
+
+# Приклад
+cll = CircularLinkedList()
+cll.push_back(&quot;A&quot;)
+cll.push_back(&quot;B&quot;)
+cll.push_back(&quot;C&quot;)
+cll.print_list()  # A -&gt; B -&gt; C -&gt; (back to head)
+</code></pre>
+<hr />
+<h2 id="_16"><h2 style = 'text-align:center'><b>📌Дерева </b></h2></h2>
+<h3 id="_17">📋 Визначення</h3>
+<h3 id="_18">📋 Обхід дерева</h3>
+<ul>
+<li>preorder</li>
+<li>postorder</li>
+<li>inorder</li>
+</ul>
+<hr />
+<h2 id="_19"><h2 style = 'text-align:center'><b>📌Графи </b></h2></h2>
+<h3 id="_20">📋 Визначення</h3>
+<p><strong>Граф</strong> — це структура, що складається з:</p>
+<ul>
+<li>Вершин (nodes, vertices) — об'єктів або точок.</li>
+<li>Ребер (edges, arcs) — зв'язків між вершинами.</li>
+</ul>
+<p><strong>Вершина (Vertex)</strong></p>
+<blockquote>
+<p>Вершина (також звана "вузлом") є фундаментальною частиною графа. Вона може мати ім'я, яке ми будемо називати "ключем". Вершина також може мати додаткову інформацію. Ми будемо називати цю додаткову інформацію "корисним навантаженням".</p>
+</blockquote>
+<p><strong>Ребро (Edge)</strong></p>
+<blockquote>
+<p>Ребро (також зване "дугою") - це ще одна фундаментальна частина графа. Ребро з'єднує дві вершини, щоб показати, що між ними існує зв'язок. Ребра можуть бути односторонніми або двосторонніми. Якщо всі ребра в графі односторонні, ми говоримо, що граф є орієнтованим графом, або диграфом. Наведений вище граф передумов до занять є диграфом, оскільки ви повинні пройти деякі заняття раніше за інші.</p>
+</blockquote>
+<p><strong>Вага (Weight)</strong></p>
+<blockquote>
+<p>Ребра можуть мати вагу, щоб показати, скільки коштує шлях з однієї вершини в іншу. Наприклад, на графі доріг, які з'єднують одне місто з іншим, вага ребра може відображати відстань між двома містами.</p>
+</blockquote>
+<p><strong>Шлях (Path)</strong></p>
+<blockquote>
+<p>Шлях у графі - це послідовність вершин, з'єднаних ребрами.</p>
+</blockquote>
+<p><strong>Цикл (Cycle )</strong></p>
+<blockquote>
+<p>Цикл в орієнтованому графі - це шлях, який починається і закінчується в одній вершині. </p>
+</blockquote>
+<h3 id="_21">📋</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Футер" >
+        
+          
+          <a href="../../MKDOCS/mkdocs_commands/" class="md-footer__link md-footer__link--prev" aria-label="Назад: MkDocs commnds">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                MkDocs commnds
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cs_networks/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Комп&#39;ютерні мережі">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Комп'ютерні мережі
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["search.highlight", "navigation.footer", "navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.collapse"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

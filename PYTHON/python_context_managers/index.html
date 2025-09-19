@@ -1,0 +1,1955 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://BatyrbekCherushev.github.io/STUDY_NOTES/PYTHON/python_context_managers/">
+      
+      
+        <link rel="prev" href="../python_iterator_generators/">
+      
+      
+        <link rel="next" href="../python_network_programming/">
+      
+      
+      <link rel="icon" href="../../RES/img/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Контекстні менеджери - Мій конспект...</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Мій конспект..." class="md-header__button md-logo" aria-label="Мій конспект..." data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Мій конспект...
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Контекстні менеджери
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Темний"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Темний" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Світлий"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Світлий" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/BatyrbekCherushev/STUDY_NOTES" title="Перейти до вихідного коду" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Головна
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../MKDOCS/mkdocs_autodeploy_setup/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  MKDOCS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../CS/cs_algorithms_data_structures/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  КОМП'ЮТЕРНІ НАУКИ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../python_links/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  PYTHON
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../GIT/git_links/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  GIT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../LINKS/links_basic/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Корисні посилання
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Мій конспект..." class="md-nav__button md-logo" aria-label="Мій конспект..." data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Мій конспект...
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/BatyrbekCherushev/STUDY_NOTES" title="Перейти до вихідного коду" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Головна
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MKDOCS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            MKDOCS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MKDOCS/mkdocs_autodeploy_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autodeploy to GitHub pages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MKDOCS/mkdocs_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs commnds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    КОМП'ЮТЕРНІ НАУКИ
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            КОМП'ЮТЕРНІ НАУКИ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CS/cs_algorithms_data_structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Алгоритми і структури даних
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CS/cs_networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Комп'ютерні мережі
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CS/cs_http/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    PYTHON
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            PYTHON
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Змінні
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Типи даних
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Оператори
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_namespace_scope/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Простір імен, область видимості
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Класи
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_iterator_generators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ітератори. генератори
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Контекстні менеджери
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Контекстні менеджери
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Посилання на тему
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Визначення
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Визначення">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with" class="md-nav__link">
+    <span class="md-ellipsis">
+      Внутрішній механізм with
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Створення власного контекстного менеджера
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Приклади
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Приклади">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⏱ Контекстний менеджер для таймера
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Контекстний менеджер для логування
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      📂 Контекстний менеджер: тимчасова зміна директорі
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_network_programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Мережеве програмування
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_requests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Бібліотека requests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GIT
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            GIT
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/git_links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/git_definitions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Основні поняття GIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/terminology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Термінологія GIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GIT/git_basic_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Основні команди GIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Корисні посилання
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Корисні посилання
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ЗАГАЛЬНЕ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_english/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ENGLISH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_cs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ІНФОРМАТИКА
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ІНСТРУМЕНТИ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_important_subjects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ВАЖЛИВІ БАЗОВІ ТЕМИ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    БАЗИ ДАНИХ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINKS/links_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    РОБОЧИЙ ПРОЦЕС
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Посилання на тему
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Визначення
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Визначення">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with" class="md-nav__link">
+    <span class="md-ellipsis">
+      Внутрішній механізм with
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Створення власного контекстного менеджера
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Приклади
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Приклади">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⏱ Контекстний менеджер для таймера
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Контекстний менеджер для логування
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      📂 Контекстний менеджер: тимчасова зміна директорі
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Контекстні менеджери</h1>
+
+<hr />
+<h2 id="_1"><h2 style = 'text-align:center'><b>📌 Посилання на тему</b></h2></h2>
+<hr />
+<ul>
+<li><a href="https://docs.python.org/3.7/library/stdtypes.html#typecontextmanager">Python documentation - Context Manager Types</a></li>
+<li><a href="https://docs.python.org/3.7/reference/datamodel.html#context-managers">Python documentation - 3.3.9. With Statement Context Managers</a></li>
+<li><a href="https://docs.python.org/3.7/reference/compound_stmts.html#with">Python documentation - The with statement</a></li>
+<li><a href="https://docs.python.org/3.7/library/contextlib.html">Python documentation - contextlib — Utilities for with-statement contexts</a></li>
+</ul>
+<hr />
+<h2 id="_2"><h2 style = 'text-align:center'><b>📌 Визначення</b></h2></h2>
+<hr />
+<p>Контекстні менеджери в Python — це дуже корисна концепція, яка дозволяє автоматично керувати ресурсами, такими як</p>
+<ul>
+<li>Файли: open()</li>
+<li>Блокування потоків: - <code>with lock</code></li>
+<li>Бази даних: відкриття/закриття транзакцій - <code>with connection</code></li>
+<li>Тимчасова зміна налаштувань (наприклад, зміна робочої директорії)</li>
+<li>Мережеві з’єднання</li>
+<li>Автоматичне очищення ресурсів</li>
+</ul>
+<p><strong>Контекстний менеджер</strong> — це об’єкт, який реалізує методи <code>__enter__()</code> та <code>__exit__()</code>. Цей об’єкт визначає що треба зробити:</p>
+<ul>
+<li>
+<p>при вході в контекст (наприклад, відкрити файл, створити з’єднання, взяти блокування);</p>
+</li>
+<li>
+<p>при виході з контексту (закрити файл, відпустити з’єднання, зняти блокування), навіть якщо сталася помилка.</p>
+</li>
+</ul>
+<p>Щоб бути контекстним менеджером, об’єкт повинен мати два методи:</p>
+<ul>
+<li>
+<p><code>__enter__(self)</code> — викликається при вході в контекст (після with);</p>
+</li>
+<li>
+<p><code>__exit__(self, exc_type, exc_value, traceback)</code> — викликається при виході (навіть у разі помилки).</p>
+<ul>
+<li><code>exc_type, exc_value, traceback</code> - параметри, через які передаються дані про виключення, в разі його виникнення</li>
+<li>якщо виключення не сталось, передаються None</li>
+<li>Якщо цей метод повертає True, то у випадку коли у вкладеному блоці коду у структурі <code>with</code> виникає виключення, то воно не зупиняє виконання програми, але дані про виключення все одно передаються в метод <code>__exit__()</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>Порядок роботи з <code>with</code> виразом</strong></p>
+<pre><code class="language-python">with A() as a, B() as b:
+    suite
+</code></pre>
+<ul>
+<li><code>A()</code> - виклик контекстного менеджера</li>
+<li><code>as a</code> - результат вмконання присвоюється в <code>a</code></li>
+<li><code>A() as a, B() as b</code> - в одному рядку можна викликати декілька контекстних менеджерів</li>
+</ul>
+<p>Альтернативний варіант для роботи з декількома контекстними менеджерами:</p>
+<pre><code class="language-python">with A() as a:
+    with B() as b:
+        suite
+</code></pre>
+<p><strong>Послідовність виконання методу <code>with</code> для одного контекстного менеджера:</strong></p>
+<ol>
+<li>Отримання об'єкта контекстного менеджера.</li>
+<li>Завантаження магічного метода <code>__exit__</code> цього контекстного менеджера, для майбутнього автоматичного використання при виході з виразу <code>with</code>.</li>
+<li>Виконується магічний метод <code>__enter__</code> (об'єкта контекстного менеджера).</li>
+<li>Якщо він повертає якесь значення, то воно присвоюється у вираз <code>as</code>.<blockquote>
+<p>якщо метод <code>__enter__</code> виконався без помилки, то метод <code>__exit__</code>, прив'язаний до контекстного менеджера виконається при будь яких обставинах. Навіть якщо в середині блоку коду, що вкладено після <code>with</code>, виникне помилка.</p>
+</blockquote>
+</li>
+<li>Виконання виконання вкладеного блоку коду <code>suite</code>.</li>
+<li>Виконання методу <code>__exit__</code><blockquote>
+<p>Якщо блок коду <code>suite</code> видає помилку, то її тип, значення і повний трейсбек передаються у метод <code>__exit__</code> </p>
+</blockquote>
+</li>
+</ol>
+<p>Зазвичай менеджери контексту викликаються за допомогою інструкції with, , яка гарантує, що ресурси будуть закриті або звільнені, навіть якщо виникла помилка. Але їх також можна використовувати шляхом прямого виклику їхніх методів (<code>__enter__</code>, <code>__exit__</code>).</p>
+<p><strong>Використання контекстного менеджера через <code>with</code>:</strong></p>
+<pre><code class="language-python">with open(&quot;data.txt&quot;, &quot;r&quot;) as f:
+    content = f.read()
+# Тут файл автоматично закрито, навіть якщо всередині було виключення
+</code></pre>
+<p><strong>Приклад використання контекстного менеджера без <code>with</code>:</strong></p>
+<pre><code class="language-python">cm = open(&quot;data.txt&quot;, &quot;w&quot;)  # створили контекстний менеджер
+try:
+    cm.__enter__()  # вхід у контекст
+    cm.write(&quot;Привіт без with!\n&quot;)
+except Exception as e:
+    # Передаємо інформацію про помилку в __exit__
+    import sys
+    exc_info = sys.exc_info()  # (type, value, traceback)
+    cm.__exit__(*exc_info)
+else:
+    cm.__exit__(None, None, None)  # вихід із контексту
+</code></pre>
+<h3 id="with"><strong>Внутрішній механізм with</strong></h3>
+<p>Під капотом конструкція</p>
+<pre><code class="language-python">with MyCM() as val:
+    suite
+</code></pre>
+<p>еквівалентна:</p>
+<pre><code class="language-python">cm = MyCM()
+val = cm.__enter__()
+try:
+    suite
+except Exception as e:
+    cm.__exit__(type(e), e, e.__traceback__)
+    raise
+else:
+    cm.__exit__(None, None, None)
+</code></pre>
+<blockquote>
+<p>Тобто <code>__exit__</code> завжди викликається — навіть якщо у блоці була помилка.</p>
+</blockquote>
+<hr />
+<h2 id="_3"><h2 style = 'text-align:center'><b>📌 Створення власного контекстного менеджера</b></h2></h2>
+<hr />
+<p>Реалізувати власний контекстний менеджер можна:</p>
+<ul>
+<li>Через класи</li>
+<li>Використанням декоратор <code>@contextmanager</code> із вбудованого модуля <code>contextlib</code></li>
+</ul>
+<p><strong>Класовий спосіб</strong></p>
+<pre><code class="language-python">class MyCM:
+    def __enter__(self):
+        print(&quot;Вхід у контекст&quot;)
+        return &quot;Дані&quot;
+
+    def __exit__(self, exc_type, exc_value, tb):
+        print(&quot;Вихід із контексту&quot;)
+        print(&quot;Тип помилки:  &quot;, exc_type)
+        print(&quot;Об'єкт помилки:&quot;, exc_value)
+        print(&quot;Traceback:    &quot;, tb)
+        # Якщо повернути True — помилка буде приглушена
+        return True
+
+with MyCM() as data:
+    print('Working...')
+    print('Data = ', data)
+</code></pre>
+<p>🧾 Вивід</p>
+<pre><code class="language-mkdocs">Вхід у контекст
+Working...
+Data =  Дані
+Вихід із контексту
+Тип помилки:   None
+Об'єкт помилки: None
+Traceback:     None
+</code></pre>
+<p><strong>Декоратор <code>@contextmanager</code> із <code>contextlib</code></strong></p>
+<pre><code class="language-python">from contextlib import contextmanager
+
+@contextmanager
+def my_context():
+    print(&quot;Входимо&quot;)
+    yield &quot;Ресурс&quot;
+    print(&quot;Виходимо&quot;)
+
+with my_context() as res:
+    print(&quot;Всередині:&quot;, res)
+
+</code></pre>
+<ul>
+<li>🔧 yield розділяє вхід і вихід з контексту</li>
+<li>блок коду до yield є аналогічним реалізації методу <code>__enter__</code></li>
+<li>блок коду після виразу yield аналогічний реалізацї методу <code>__exit__</code></li>
+</ul>
+<hr />
+<h2 id="_4"><h2 style = 'text-align:center'><b>📌 Приклади</b></h2></h2>
+<hr />
+<h3 id="_5"><strong>⏱ Контекстний менеджер для таймера</strong></h3>
+<p>Цей менеджер вимірює, скільки часу займає виконання блоку коду.</p>
+<pre><code class="language-python">import time
+
+class Timer:
+    def __enter__(self):
+        self.start = time.time()
+        return self  # можна повертати об'єкт, щоб використовувати його всередині
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.end = time.time()
+        self.interval = self.end - self.start
+        print(f&quot;Час виконання: {self.interval:.4f} секунд&quot;)
+
+# Приклад використання
+with Timer():
+    total = sum(range(1000000))
+</code></pre>
+<ul>
+<li><code>__enter__</code> зберігає час початку</li>
+<li><code>__exit__</code> обчислює час завершення і виводить результат</li>
+</ul>
+<h3 id="_6"><strong>📋 Контекстний менеджер для логування</strong></h3>
+<p>Цей менеджер записує повідомлення до лог-файлу при вході та виході з блоку.</p>
+<pre><code class="language-python">from contextlib import contextmanager
+
+@contextmanager
+def log_action(action_name):
+    with open(&quot;log.txt&quot;, &quot;a&quot;) as log_file:
+        log_file.write(f&quot;[START] {action_name}\n&quot;)
+        try:
+            yield
+        finally:
+            log_file.write(f&quot;[END] {action_name}\n&quot;)
+
+# Приклад використання
+with log_action(&quot;Обробка даних&quot;):
+    print(&quot;Тут відбувається обробка...&quot;)
+</code></pre>
+<p>📁 У файл <code>log.txt</code> буде записано:</p>
+<pre><code>[START] Обробка даних
+[END] Обробка даних
+</code></pre>
+<h3 id="_7"><strong>📂 Контекстний менеджер: тимчасова зміна директорі</strong></h3>
+<pre><code class="language-python">import os
+
+class SafeChangeDirectory:
+    def __init__(self, new_path):
+        self.new_path = new_path
+        self.original_path = os.getcwd()
+
+    def __enter__(self):
+        if not os.path.exists(self.new_path):
+            print(f&quot;Директорія '{self.new_path}' не існує. Створюю...&quot;)
+            os.makedirs(self.new_path)
+        else:
+            print(f&quot;Директорія '{self.new_path}' вже існує.&quot;)
+        os.chdir(self.new_path)
+        print(f&quot;Перехід до: {self.new_path}&quot;)
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        os.chdir(self.original_path)
+        print(f&quot;Повернення до: {self.original_path}&quot;)
+</code></pre>
+<p>✅ Приклад використання:</p>
+<pre><code>print(&quot;Поточна директорія:&quot;, os.getcwd())
+
+with SafeChangeDirectory(&quot;test_folder&quot;):
+    print(&quot;Всередині блоку:&quot;, os.getcwd())
+
+print(&quot;Після блоку:&quot;, os.getcwd())
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Футер" >
+        
+          
+          <a href="../python_iterator_generators/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Ітератори. генератори">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Ітератори. генератори
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../python_network_programming/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Мережеве програмування">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Мережеве програмування
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["search.highlight", "navigation.footer", "navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.collapse"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
